@@ -1,0 +1,38 @@
+.btn {
+	border-radius: 0px;
+}
+.no-border {
+	border:none;
+}
+.padded {
+	padding: 2px;
+}
+.btn-default.btn-header {
+	background-color: #F5F5F5;
+}
+.h2.reduced-top-margin {
+	margin-top: 10px;
+}
+.scrollable-300 {
+	max-height: 300px;
+	overflow: auto;
+}
+p.small-item-desc {
+	height: 4em;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+.scrollable-800 {
+	max-height: 800px;
+	overflow: auto;
+}
+p.med-item-desc {
+	max-height: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+img {
+	border-style:dashed;
+	border-width:2px;
+	border-color:gray;
+}
