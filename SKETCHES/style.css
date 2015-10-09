@@ -26,6 +26,10 @@ p.small-item-desc {
 	max-height: 800px;
 	overflow: auto;
 }
+.scrollable-400 {
+	max-height: 400px;
+	overflow: auto;
+}
 p.med-item-desc {
 	max-height: 300px;
 	overflow: hidden;
