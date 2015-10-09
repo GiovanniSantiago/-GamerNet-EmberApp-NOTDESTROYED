@@ -13,6 +13,9 @@
 .h2.reduced-top-margin {
 	margin-top: 10px;
 }
+.separate-top {
+	margin-top:20px;
+}
 .scrollable-300 {
 	max-height: 300px;
 	overflow: auto;
