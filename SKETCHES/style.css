@@ -20,6 +20,10 @@
 	max-height: 300px;
 	overflow: auto;
 }
+.scrollable-350 {
+	max-height:350px;
+	overflow: auto;
+}
 p.small-item-desc {
 	height: 4em;
 	overflow: hidden;
@@ -42,4 +46,12 @@ img {
 	border-style:dashed;
 	border-width:2px;
 	border-color:gray;
+}
+.debug-border {
+	border-style:dashed;
+	border-width:1px;
+	border-color:red;
+}
+.no-margin {
+	margin: 0px;
 }
