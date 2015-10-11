@@ -13,7 +13,13 @@ Router.map(function() {
           this.route('games',{path:"games"});
       });
   });
+  
+this.route('game',{},function(){
+    this.route('matchmaking');
+});
 
+
+    
   this.route('profile', {path:'profile'}, function() {
     this.route('friends', {path:'friends'});
     this.route('groups', {path:'groups'});
