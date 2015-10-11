@@ -6,19 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('user', {path:'user'},function() {
-      this.route('show',{path:":user_id"}, function() {
-          this.route('friends',{path:"friends"});
-          this.route('groups',{path:"groups"});
-          this.route('games',{path:"games"});
-      });
-  });
-
-  this.route('profile', {path:'profile'}, function() {
-    this.route('friends', {path:'friends'});
-    this.route('groups', {path:'groups'});
-    this.route('games', {path:'games'});
-  });
+  this.route('group', {path:'/group/:group_id'});
+  this.route('user', {path:'user/:user_id'});
+  this.route('post', {path:'post/:post_id'});
+  this.route('game', {path:'game/:game_id'});
+  this.route('matchrequest', {path:'match/:match_id'});
 });
 
 export default Router;
