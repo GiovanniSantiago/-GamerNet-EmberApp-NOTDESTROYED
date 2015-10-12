@@ -1,81 +1,21 @@
- <div class="container">
-          <div class="row">
-              <div class="panel panel-default">
-                  <div class="panel-body">
-                      
-                      <!--FIRST ROW-->
-                      <div class="row">
-                          
-                          <!--FIRST COLUMN-->
-				        <div class="col-md-4 col-sm-6">
-                          <img {{bind-attr src="https://www.google.com.pr/search?q=google&es_sm=122&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAWoVChMImrD75LG7yAIVgeiACh0WmwAN&biw=1920&bih=858#imgrc=m4qsOrXytYY2xM%3A"}}>
-                          
-                         
-                            
-                          <div class="row">
-                             
-                          <div class="btn-group col-md-6 col-md-offset-3 "  role="group">
-							         <a href="#" class="btn btn-default btn-block no-border">Add to Wishlist</a>
-							         <a href="#" class="btn btn-default btn-block no-border">Add to Own</a>
-							         <a href="#" class="btn btn-default btn-block no-border">Add to played list</a>
-						   </div>
-                          </div>
-                          
-                        </div>
-                       
-                      <!--SECOND COLUMN-->
-                        <div class="col-md-8 col-sm-6">
-                            <div class="well well-lg">
-                                <div class="panel panel-default">
-                                Console:
-                                </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur ipsum sem, a varius ligula facilisis ut. Quisque                                  lectus purus, consectetur id tellus scelerisque, dictum hendrerit leo. Suspendisse feugiat est ut enim porttitor ultricies.                                Sed dignissim, nisl pellentesque semper congue, nulla velit pellentesque felis, at imperdiet neque lorem vitae sem. Ut                                      dapibus porta metus non sagittis. Pellentesque interdum elit quam, eget vulputate nibh ullamcorper et. Vestibulum quam                                      massa, aliquam id vulputate vitae, consequat eget libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras                                sed justo dignissim, pulvinar ante id, convallis nisi. Suspendisse et interdum ligula.
-                                        </p>
-                            </div>
-                        </div>
-                      
-                      <!--THIRD COLUMN-->
-                  </div>
-				</div>
-              </div>
-          </div>
-      
-      
-      <!--SECOND ROW-->
-                <div class="row">
-                            <div class="col-md-4">
-                                {{outlet}}
-                            </div>
-                          
-                          <div class="col-md-8">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        Group
-                                    </div>
-                                    
-                                    <ul class=" list-group scroll">
-                                        <li class="list-group-item li-size">asdf</li>
-                                        <li class="list-group-item li-size">asdf</li>
-                                        <li class="list-group-item li-size">asdf</li>
-                                    </ul>
-                                </div>
-                          </div>
-                </div>
-        
-      <!--THIRD ROW-->
-      <div class="row">
-          <div class="col-md-12">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                Reviews
-              </div>
-              
-              <ul class="list-group scroll">
-                <li class="list-group-item li-size">ljasdfasdfjasdf</li>
-                <li class="list-group-item li-size">ljasdfasdfjasdf</li>
-                <li class="list-group-item li-size">ljasdfasdfjasdf</li>
-              </ul>
-          </div>
-          </div>
+<div class="container">
+    {{game-info-panel}}
+          <!--SECOND ROW-->
+    <div class="row">
+        <div class="col-md-4">
+            {{match-making-panel}}
+        </div>
+
+        <div class="col-md-8">
+            {{game-group-list-panel}}
+        </div>
+    </div>
+
+          <!--THIRD ROW-->
+    <div class="row">
+      <div class="col-md-12">
+          {{reviews-panel}}
+          {{try-test}}
       </div>
-      </div>
+    </div>
+</div>
