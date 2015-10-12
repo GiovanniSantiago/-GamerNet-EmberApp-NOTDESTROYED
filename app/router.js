@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('user');
   this.route('post', {path:'post/:post_id'});
   this.route('game');
+    this.route('group');
+    this.route('gamelist');
   this.route('matchrequest', {path:'match/:match_id'});
 });
 
