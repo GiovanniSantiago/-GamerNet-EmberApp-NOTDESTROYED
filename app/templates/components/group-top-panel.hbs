@@ -1,0 +1,23 @@
+<div class="panel-heading col-md-12 text-center">
+        Title of the group
+</div>
+<div class="row">
+       <div class="col-md-4">
+            {{group-info-panel}}
+    </div>
+        <div class="panel panel-default col-md-8">
+            <div class="panel-heading col-md-12">
+                <a {{action 'setMembersTab'}} class="btn btn-default btn-header no-border">Members</a>
+                <a {{action 'setEventsTab'}} class="btn btn-default btn-header no-border">Events</a>
+            </div>
+                <div class="clearfix"></div>
+        
+    
+            {{#if isMembersTab}}
+                {{group-members}}
+            {{else if isEventsTab}}
+                {{group-events}}
+            {{/if}}
+        </div>
+</div>
+
