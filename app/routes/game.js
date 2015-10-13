@@ -9,7 +9,7 @@ var dummyGames = [
 	genres:["PUZZLE","ZEN","SANDBOX","COOKING"],
 	reviews:[0,1],
 	matchmakings:[0,1]
-	}
+	},
 	{
 	game_id:1,
 	name:"Cooking Papa",
