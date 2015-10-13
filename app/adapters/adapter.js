@@ -116,7 +116,8 @@ var dummyData = {
 				likes:[0]
 			},
 			friends: [1,2],
-			groups: [0]
+			groups: [0],
+			avatar: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Superman-icon.png"
 		},
 		{
 			user_id:1,
@@ -131,7 +132,8 @@ var dummyData = {
 				likes:[0,1]
 			},
 			friends: [0,2],
-			groups: [0]
+			groups: [0],
+			avatar: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Tardis-icon.png"
 		},
 		{
 			user_id:2,
@@ -146,7 +148,8 @@ var dummyData = {
 				likes:[0]
 			},
 			friends: [0,1],
-			groups: [0]
+			groups: [0],
+			avatar: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-The-Flash-Head-icon.png"
 		},
 		{
 			user_id:3,
@@ -161,7 +164,8 @@ var dummyData = {
 				likes:[0]
 			},
 			friends: [4],
-			groups: [0]
+			groups: [0],
+			avatar: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-The-Flash-Sign-icon.png"
 		},
 		{
 			user_id:4,
@@ -176,7 +180,8 @@ var dummyData = {
 				likes:[0]
 			},
 			friends: [3],
-			groups: [0]
+			groups: [0],
+			avatar: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Thor-icon.png"
 		}
 	]
 };
@@ -193,10 +198,25 @@ let searchBy = function(array, propname, value)
 		}
 }
 
+let accumBy = function(array, propname, value)
+{
+	let res = [];
+	for(let i = 0; i < array.length; i++)
+		{
+			if(array[i][propname]==value)
+				res.push(array[i]);
+		}
+	return res;
+}
+
 export default Ember.Object.extend({
 	find: function(name,id){
 		console.log("FIND ("+name+","+id+")");
 		return searchBy(dummyData[name],name+"_id",id);
+	},
+	accumCustom: function(name,param,val){
+		console.log("ACCUMCUSTOM ("+name+","+param+","+val+")");
+		return accumBy(dummyData[name],param,val);
 	},
 	getAll: function(name){
 		console.log("GETALL ("+name+")");
