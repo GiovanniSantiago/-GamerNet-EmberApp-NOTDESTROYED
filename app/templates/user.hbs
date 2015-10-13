@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-4"> <!-- AVATAR INFO PANEL -->
-		{{avatar-info-panel user=model}}
+		{{avatar-info-panel user=model.user}}
 	</div> <!-- END AVATAR INFO PANEL -->
 	<div class="col-md-8">
 		<!-- Rightpanel	-->
-        {{user-right-panel}}
+        {{user-right-panel user=model.user}}
     </div>
 </div>
-{{user-post-panel}}
+{{user-post-panel posts=model.userPosts avatar=model.user.avatar}}

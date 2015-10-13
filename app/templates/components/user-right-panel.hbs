@@ -1,137 +1,21 @@
 
 <div class="panel-heading">
 	<div class="btn-group pull-right" role="group">
-		<button class="btn btn-default btn-header no-border" {{action "setGameTab"}}>Games</button>
-		<button class="btn btn-default btn-header no-border" {{action "setFriendTab"}}>Friends</button>
-		<button class="btn btn-default btn-header no-border" {{action "setGroupTab"}}>Groups</button>
+		<button class="btn btn-default btn-header no-border" {{action "setGamesTab"}}>Games</button>
+		<button class="btn btn-default btn-header no-border" {{action "setFriendsTab"}}>Friends</button>
+		<button class="btn btn-default btn-header no-border" {{action "setGroupsTab"}}>Groups</button>
 	</div>
 	<div class="clearfix"></div>
 </div>
 
 <div class="container-fluid scrollable-400">
-	<div class="panel-group separate-top">
-		{{#if gameTabActive}}
-			{{user-gamelist-panel lists=model.gamelists}}
-		{{else if friendTabActive}}
-			{{user-friendlist-panel friends=model.friends}}
-		{{else if groupTabActive}}
-			{{user-grouplist-panel groups=model.groups}}
+	
+		{{#if isGamesTab}}
+			{{user-gamelist-panel gamelists=user.gamelists}}
+		{{else if isFriendsTab}}
+			{{user-friendlist-panel friends=user.friends}}
+		{{else if isGroupsTab}}
+			{{user-grouplist-panel groups=user.groups}}
 		{{/if}}
-		<!--<div class="panel panel-default">
-			<div class="panel-heading"><a role="button" data-toggle="collapse" href="#owns-collapse">
-				<p>Owns <span class="caret"></span></p>
-				</a>
-			</div>
-			<ul class="list-group collapse" id="owns-collapse">
-				<li class="list-group-item">
-					Game #1
-				
-                </li>
-				<li class="list-group-item">
-					Game #2
-				</li>
-				<li class="list-group-item">
-					Game #3
-				</li>
-				<li class="list-group-item">
-					Game #4
-				</li>
-				<li class="list-group-item">
-					Game #5
-				</li>
-				<li class="list-group-item">
-					Game #6
-				</li>
-				<li class="list-group-item">
-					Game #7
-				</li>
-				<li class="list-group-item">
-					Game #8
-				</li>
-				<li class="list-group-item">
-					Game #9
-				</li>
-				<li class="list-group-item">
-					Game #10
-				</li>
-			</ul>
-		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading"><a role="button" data-toggle="collapse" href="#wishes-collapse">
-				<p>Wishlist <span class="caret"></span></p>
-				</a>
-			</div>
-			<ul class="list-group collapse" id="wishes-collapse">
-				<li class="list-group-item">
-					Game #1
-				</li>
-				<li class="list-group-item">
-					Game #2
-				</li>
-				<li class="list-group-item">
-					Game #3
-				</li>
-				<li class="list-group-item">
-					Game #4
-				</li>
-				<li class="list-group-item">
-					Game #5
-				</li>
-				<li class="list-group-item">
-					Game #6
-				</li>
-				<li class="list-group-item">
-					Game #7
-				</li>
-				<li class="list-group-item">
-					Game #8
-				</li>
-				<li class="list-group-item">
-					Game #9
-				</li>
-				<li class="list-group-item">
-					Game #10
-				</li>
-			</ul>
-		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading"><a role="button" data-toggle="collapse" href="#likes-collapse">
-				<p>Likes <span class="caret"></span></p>
-				</a>
-			</div>
-			<ul class="list-group collapse" id="likes-collapse">
-				<li class="list-group-item">
-					Game #1
-				</li>
-				<li class="list-group-item">
-					Game #2
-				</li>
-				<li class="list-group-item">
-					Game #3
-				</li>
-				<li class="list-group-item">
-					Game #4
-				</li>
-				<li class="list-group-item">
-					Game #5
-				</li>
-				<li class="list-group-item">
-					Game #6
-				</li>
-				<li class="list-group-item">
-					Game #7
-				</li>
-				<li class="list-group-item">
-					Game #8
-				</li>
-				<li class="list-group-item">
-					Game #9
-				</li>
-				<li class="list-group-item">
-					Game #10
-				</li>
-			</ul>
-		</div>-->
-	</div>
    
 </div>

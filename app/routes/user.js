@@ -7,6 +7,6 @@ export default Ember.Route.extend({
 		console.log(params.game_id);
 		let res = adapter.find("user",params.user_id);
 		console.log(res);
-		return res;
+		return {user:res,userPosts:adapter.accumCustom("post","owner_id",res.owner_id)};
 	}
 });
