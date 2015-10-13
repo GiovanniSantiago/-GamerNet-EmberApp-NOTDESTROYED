@@ -1,4 +1,7 @@
 <div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title text-center">{{name}}</h3>
+	</div>
     <div class="panel-body">
 
           <!--FIRST ROW-->
@@ -6,17 +9,13 @@
 
               <!--FIRST COLUMN-->
             <div class="col-md-4 col-sm-6">
-              <img {{bind-attr src="https://www.google.com.pr/search?           q=google&es_sm=122&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAWoVChMImrD75LG7yAIVgeiACh0WmwAN&biw=1920&bih=858#imgrc=m4qsOrXytYY2xM%3A"}}>
-
-
-
+              <img src={{image}} class="img-responsive"/>
               <div class="row">
-
-              <div class="btn-group col-md-6 col-md-offset-3 "  role="group">
-                         <a href="#" class="btn btn-default btn-block">Add to Wishlist</a>
-                         <a href="#" class="btn btn-default btn-block">Add to Own</a>
-                         <a href="#" class="btn btn-default btn-block">Add to played list</a>
-               </div>
+				  <div class="btn-group col-md-6 col-md-offset-3"  role="group">
+							 <a href="#" class="btn btn-default btn-block no-border">Add to Wishlist</a>
+							 <a href="#" class="btn btn-default btn-block no-border">Add to Own</a>
+							 <a href="#" class="btn btn-default btn-block no-border">Add to played list</a>
+				   </div>
               </div>
 
             </div>
@@ -25,14 +24,13 @@
             <div class="col-md-8 col-sm-6">
                 <div class="well well-lg">
                     <div class="panel panel-default">
-                    Console:
-                    </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur ipsum sem, a varius ligula facilisis ut. Quisque                                  lectus purus, consectetur id tellus scelerisque, dictum hendrerit leo. Suspendisse feugiat est ut enim porttitor ultricies.                                Sed dignissim, nisl pellentesque semper congue, nulla velit pellentesque felis, at imperdiet neque lorem vitae sem. Ut                                      dapibus porta metus non sagittis. Pellentesque interdum elit quam, eget vulputate nibh ullamcorper et. Vestibulum quam                                      massa, aliquam id vulputate vitae, consequat eget libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras                                sed justo dignissim, pulvinar ante id, convallis nisi. Suspendisse et interdum ligula.
-                            </p>
-                </div>
+						Consoles: <ul class="inline-block">{{#each consoles as |console|}}<li>{{console}}</li>{{else}}<li class="text-muted">No consoles...?</li>{{/each}}</ul>
+					</div>
+					{{description}}
+				</div>
             </div>
 
           <!--THIRD COLUMN-->
-      </div>
+		</div>
     </div>
 </div>

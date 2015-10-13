@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
 
+
   //this.route('group', {path:'/group/:group_id'});
   this.route('user');
   //this.route('post', {path:'post/:post_id'});

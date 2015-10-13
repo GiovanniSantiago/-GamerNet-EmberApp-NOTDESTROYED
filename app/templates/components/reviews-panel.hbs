@@ -1,26 +1,96 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    Reviews
-  </div>
+<!-- In components/reviews-panel.js
+this is set to <div class="panel panel-default"> -->
+<!-- Component parameters:
+		reviews[]:
+			title
+			text
+			category
+			authorId
+			ratingPoints
+		<testing>reviews:
+			reviewId
+-->
 
-  <ul class="list-group scroll">
-    <li class="list-group-item li-size">
-        Title: <br>
-        Description: <br>
-        Category: <br>
-        Author: <br>
-      </li>
-      <li class="list-group-item li-size">
-        Title: <br>
-        Description: <br>
-        Category: <br>
-        Author: <br>
-      </li>
-      <li class="list-group-item li-size">
-        Title: <br>
-        Description: <br>
-        Category: <br>
-        Author: <br>
-      </li>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1 class="panel-title">
+	  		Reviews
+		</h1>
+	</div>
+
+	<ul class="list-group scroll">
+		{{#each reviews as |review|}}
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="pull-right">
+							<p class="text-muted">ID: </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-8">
+						{{review}}
+					</div>
+				</div>
+				<!-- Proper Info here. Test info previous.
+				<div class="row">
+					<div class="col-md-4">
+						<div class="pull-right">
+							<p class="text-muted">Title: </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-8">
+						{{review.title}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="pull-right">
+							<p class="text-muted">Category: </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-8">
+						{{review.category}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="pull-right">
+							<p class="text-muted">Author: </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-8">
+						{{review.authorId}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="pull-right">
+							<p class="text-muted">Rating: </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-8">
+						{{review.ratingPoints}}
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						{{review.text}}
+					</div>
+				</div>
+
+				-->
+			</li>
+		{{else}}
+			<li class="list-group-item">
+				<p class="text-muted">
+					No reviews yet. How unloved... ;^;
+				</p>
+			</li>
+		{{/each}}
   </ul>
 </div>
