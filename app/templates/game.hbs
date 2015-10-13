@@ -4,18 +4,18 @@
           <!--SECOND ROW-->
     <div class="row">
         <div class="col-md-4">
-            {{match-making-panel}}
+            {{match-making-panel matchmakings=model.matchmakings}}
         </div>
 
         <div class="col-md-8">
-            {{general-group-list-panel}}
+            {{general-group-list-panel relatedGroups=model.groups}}
         </div>
     </div>
 
           <!--THIRD ROW-->
     <div class="row">
       <div class="col-md-12">
-          {{reviews-panel}}
+          {{reviews-panel reviews=model.reviews}}
       </div>
     </div>
 </div>

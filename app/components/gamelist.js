@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export Ember.Component.extends({
+export default Ember.Component.extends({
 	
 	activeTab:"BYCONSOLE",
 	isByConsole: Ember.computed('activeTab',function(){return this.get("activeTab")==="BYCONSOLE"}),

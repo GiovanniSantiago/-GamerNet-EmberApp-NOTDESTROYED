@@ -9,6 +9,7 @@ var dummyGames = [
 	genres:["PUZZLE","ZEN","SANDBOX","COOKING"],
 	reviews:[0,1],
 	matchmakings:[0,1],
+	groups:[1],
 	image:"http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Ant-icon.png"
 	},
 	{
@@ -19,6 +20,7 @@ var dummyGames = [
 	genres:["TORTURE SIM","EXISTENTIAL PHILOSOPHICAL","RATED AO","WARGAME SIMULATOR SIMULATOR"],
 	reviews:[2,3],
 	matchmakings:[2,3],
+	groups:[0],
 	image:"http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Cat-icon.png"
 	}
 ];
