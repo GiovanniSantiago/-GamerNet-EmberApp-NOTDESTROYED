@@ -12,11 +12,11 @@ Router.map(function() {
   //this.route('user');
   //this.route('post', {path:'post/:post_id'});
   //this.route('game');
-    //this.route('group');
+    this.route('group');
     this.route('gamelist');
   //this.route('matchrequest', {path:'match/:match_id'});
 
-	this.route('group', {path:'/group/:group_id'});
+	//this.route('group', {path:'/group/:group_id'});
 	this.route('user', {path:'/user/:user_id'});
 	this.route('post', {path:'/post/:post_id'});
 	this.route('game', {path:'/game/:game_id'});
