@@ -11,9 +11,9 @@
     </div>
 </div>
 {{#if isByConsole}}
-    {{gamelist-by-console}}
+    {{gamelist-by-console gamelist=model}}
 {{else if isByGenre}}
-    {{gamelist-by-genre}}
+    {{gamelist-by-genre gamelist=model}}
 {{else if isByAlphabetical}}
-    {{gamelist-by-alphabetical}}
+    {{gamelist-by-alphabetical gamelist=model}}
 {{/if}}

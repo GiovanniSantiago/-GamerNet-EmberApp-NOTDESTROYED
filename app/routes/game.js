@@ -1,34 +1,13 @@
 import Ember from 'ember';
-
-var dummyGames = [
-	{
-	game_id:0,
-	name:"Wargame 20XX",
-	desc:"WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS WAR WAR WAR GUNS DEATH BULLETS GUNS",
-	platforms: ["PS4","PS6","WiiUU","XBAG","GAMEHYPERCUBE"],
-	genres:["PUZZLE","ZEN","SANDBOX","COOKING"],
-	reviews:[0,1],
-	matchmakings:[0,1],
-	groups:[1],
-	image:"http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Ant-icon.png"
-	},
-	{
-	game_id:1,
-	name:"Cooking Papa",
-	desc:"FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR FLOUR FLOUR FLOUR SUGAR BAKING MILK SUGAR",
-	platforms: ["4DSXXL","GameBoyUltra"],
-	genres:["TORTURE SIM","EXISTENTIAL PHILOSOPHICAL","RATED AO","WARGAME SIMULATOR SIMULATOR"],
-	reviews:[2,3],
-	matchmakings:[2,3],
-	groups:[0],
-	image:"http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Cat-icon.png"
-	}
-];
+import Adapter from 'gamer-net-ember/adapters/adapter';
 
 export default Ember.Route.extend({
 	model: function(params) {
+		let adapter = Adapter.create();
 		console.log(params.game_id);
-		return dummyGames[params.game_id];
+		let res = adapter.find("game",params.game_id);
+		console.log(res);
+		return res;
 	}
 });
 

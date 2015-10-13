@@ -2,11 +2,10 @@ import Ember from 'ember';
 import Adapter from 'gamer-net-ember/adapters/adapter';
 
 export default Ember.Route.extend({
-	model: function(params) {
+	model: function() {
 		let adapter = Adapter.create();
-		console.log(params.game_id);
-		let res = adapter.find("user",params.user_id);
-		console.log(res);
+		console.log("entered gamelist");
+		let res = adapter.getAll("game");
 		return res;
 	}
 });
