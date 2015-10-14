@@ -1,4 +1,5 @@
 //import ajax from 'ic-ajax';
+import Ember from 'ember';
 
 var dummyData = {
 	
@@ -196,7 +197,7 @@ let searchBy = function(array, propname, value)
 			if(array[i][propname]==value)
 				return array[i];
 		}
-}
+};
 
 let accumBy = function(array, propname, value)
 {
@@ -207,7 +208,7 @@ let accumBy = function(array, propname, value)
 				res.push(array[i]);
 		}
 	return res;
-}
+};
 
 export default Ember.Object.extend({
 	find: function(name,id){
