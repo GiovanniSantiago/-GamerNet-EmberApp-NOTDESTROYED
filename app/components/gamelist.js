@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extends({
+export default Ember.Component.extend({
 	
 	activeTab:"BYCONSOLE",
 	isByConsole: Ember.computed('activeTab',function(){return this.get("activeTab")==="BYCONSOLE"}),
@@ -10,6 +10,6 @@ export default Ember.Component.extends({
 	actions:{
 		setByConsoleTab(){this.set('activeTab',"GAMES");},
 		setByGenreTab(){this.set('activeTab','FRIEND');},
-		setByAlphabeticalTab(){this.set('activeTab','GROUP')}
+		setByAlphabeticalTab(){this.set('activeTab','GROUP');}
 	}
 });

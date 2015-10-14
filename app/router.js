@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('grouplist');
     this.route('group',{path:'/group/:group_id'});
     this.route('gamelist');
+    this.route('eventlist');
   //this.route('matchrequest', {path:'match/:match_id'});
     //this.route('group', {path:'/group/:group_id'});
     this.route('user',{path:'/user/:user_id'});

@@ -1,38 +1,16 @@
-<div class="panel panel-default">
- 
-    <ul class="list-group scroll">
-        <li class="list-group-item li-size">
-           
-            <!--comienza lo que se repite-->
-            <div class="row">
-                <div class="col-md-4">Title:</div> 
-                <div class="col-md-6"></div> 
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <a {{action 'setNewestTab'}} class="btn btn-default btn-header no-border">Members</a>
+                <a {{action 'setHighTab'}} class="btn btn-default btn-header no-border">Events</a>
             </div>
-            
-            <div class="row">
-                <div class="col-md-4">Category: </div> 
-                <div class="col-md-6"></div>
             </div>
-            <div class="row">
-                <div class="col-md-4">Author:</div> 
-                <div class="col-md-6"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">Time: </div> 
-                <div class="col-md-6"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">Text: </div> 
-                <div class="col-md-6"></div>
-            </div>
-            <!--termina lo que se repite-->
-            
-            
-            
-        </li>
-        <li class="list-group-item li-size">
-            
-        </li>    
-    </ul>
-</div>
+                <div class="clearfix"></div>
+            {{#if isNewestTab}}
+                {{group-newest-event}}
+            {{else if isHighTab}}
+                {{group-high-event}}
+            {{/if}}
+
+
 

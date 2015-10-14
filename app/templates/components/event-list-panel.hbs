@@ -1,0 +1,20 @@
+<div class="panel-heading">
+    Event List
+
+<div class="pull-right">
+   <a {{action 'setAnnouncementTab'}} class="btn btn-default btn-header no-border"> Events</a>
+    <a {{action 'setEventsTab'}} class="btn btn-default btn-header no-border">Most events Events</a>
+    <a {{action 'setMatchmakingTab'}} class="btn btn-default btn-header no-border">Most Recent Events</a>
+</div>
+    <div class="clearfix"></div>
+</div>
+<div class="panel-body">
+    {{#if isMatchmakingTab}}
+        {{match-making-panel}}
+    {{else if isAnnouncementTab}}
+        {{announcement-panel}}
+    {{else if isUpEventsTab}}
+        {{announcement-panel}}
+    {{/if}}
+</div>
+

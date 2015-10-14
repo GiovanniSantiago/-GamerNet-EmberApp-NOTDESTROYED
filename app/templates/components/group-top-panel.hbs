@@ -1,14 +1,17 @@
-<div class="panel-heading col-md-12 text-center">
+<div class="panel-heading text-center">
         Title of the group
 </div>
+
 <div class="row">
        <div class="col-md-4">
             {{group-info-panel}}
     </div>
-        <div class="panel panel-default col-md-8">
-            <div class="panel-heading col-md-12">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+            <div class="panel-heading pull-right">
                 <a {{action 'setMembersTab'}} class="btn btn-default btn-header no-border">Members</a>
                 <a {{action 'setEventsTab'}} class="btn btn-default btn-header no-border">Events</a>
+            </div>
             </div>
                 <div class="clearfix"></div>
         
@@ -20,4 +23,5 @@
             {{/if}}
         </div>
 </div>
+
 
