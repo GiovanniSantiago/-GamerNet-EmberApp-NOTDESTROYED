@@ -1,1 +1,18 @@
-{{yield}}
+<!--
+in
+	members[]:
+		user_id
+		name
+	<testing>member[]: (member_id)
+-->
+<div class="panel-body">
+	{{#each friends as |user|}}
+		<li class="list-group-item">
+			{{#link-to 'user' user}}ID: {{user}}{{/link-to}}
+		</li>
+	{{else}}
+		<li class="list-group-item text-muted">
+			No members here. How lonely ;^;
+		</li>
+	{{/each}}
+</div>

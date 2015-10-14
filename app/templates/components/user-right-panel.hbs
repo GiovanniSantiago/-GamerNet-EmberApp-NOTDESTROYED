@@ -8,14 +8,14 @@
 	<div class="clearfix"></div>
 </div>
 
-<div class="container-fluid scrollable-400">
+<div class="panel-body scrollable-400">
 	
 		{{#if isGamesTab}}
 			{{user-gamelist-panel gamelists=user.gamelists}}
 		{{else if isFriendsTab}}
-			{{user-friendlist-panel friends=user.friends}}
+			{{user-friendlist-panel friends=user.friends}}<!-- FIXFIXIFX-->
 		{{else if isGroupsTab}}
-			{{user-grouplist-panel groups=user.groups}}
+			{{game-group-list-panel relatedGroups=user.groups}}<!-- FIXFIXIFX-->
 		{{/if}}
    
 </div>

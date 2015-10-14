@@ -1,44 +1,35 @@
-<ul class="list-group scroll">
-    <li class="list-group-item li-size">
 
-        <!--comienza lo que se repite-->
-        <div class="row">
-            <div class="col-md-4">Title:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">Category: </div> 
-            <div class="col-md-6"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Place:</div> 
-            <div class="col-md-6"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Time: </div> 
-            <div class="col-md-6"></div>
-        </div>
-        <!--termina lo que se repite-->
-
-        <div class="row">
-            <div class="col-md-4">Title:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">Category: </div> 
-            <div class="col-md-6"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Place:</div> 
-            <div class="col-md-6"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Time: </div> 
-            <div class="col-md-6"></div>
-        </div>
-    </li>   
-</ul>
-
+<!-- in
+	events[]:
+		event_id
+		title
+		category
+		place
+		time
+	<testing>events[] (event_id)
+-->
+{{#each events as |event|}}
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-md-4">Title:</div> 
+			<div class="col-md-8">{{event.title}}</div> 
+		</div>
+		<div class="row">
+			<div class="col-md-4">Category: </div> 
+			<div class="col-md-8">{{event.category}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">Place:</div> 
+			<div class="col-md-8">{{event.place}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">Time: </div> 
+			<div class="col-md-8">{{event.time}}</div>
+		</div>
+	</li>
+{{else}}
+	<li class="list-group-item text-muted">
+		No events yet. How uneventful ;^;
+	</li>
+{{/each}}
 
