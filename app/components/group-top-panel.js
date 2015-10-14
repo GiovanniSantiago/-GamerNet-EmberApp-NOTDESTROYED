@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	classNames:["panel","panel-default"],
     activeTab:"MEMBERS",
     isMembersTab: Ember.computed('activeTab',function(){return this.get('activeTab')==='MEMBERS';}),
     isEventsTab: Ember.computed('activeTab',function(){return this.get('activeTab')==="EVENTS";}),

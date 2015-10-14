@@ -1,32 +1,16 @@
-
-<ul class="list-group scroll">
-    <li class="list-group-item li-size">
-        <div class="row">
-            <div class="col-md-4">Group Name:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-        <div class="row">
-            <div class="col-md-4">Group Name:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-        <div class="row">
-            <div class="col-md-4">Group Name:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-         <div class="row">
-            <div class="col-md-4">Group Name:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-         <div class="row">
-            <div class="col-md-4">Group Name:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-         <div class="row">
-            <div class="col-md-4">Group Name:</div> 
-            <div class="col-md-6"></div> 
-        </div>
-        
-    </li>    
-</ul>
-
-
+<!--
+in
+	members[]:
+		user_id
+		name
+	<testing>member[]: (member_id)
+-->
+{{#each members as |member|}}
+	<li class="list-group-item">
+		{{#link-to 'user' member}}ID: {{member}}{{/link-to}}
+	</li>
+{{else}}
+	<li class="list-group-item text-muted">
+		No members here. How lonely ;^;
+	</li>
+{{/each}}

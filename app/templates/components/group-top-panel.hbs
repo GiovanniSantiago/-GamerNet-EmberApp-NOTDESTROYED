@@ -1,23 +1,24 @@
-<div class="panel-heading col-md-12 text-center">
-        Title of the group
+<div class="panel-heading text-center">
+        <h1 class="panel-title">{{group.name}}</h1>
 </div>
 <div class="row">
-       <div class="col-md-4">
-            {{group-info-panel}}
-    </div>
-        <div class="panel panel-default col-md-8">
-            <div class="panel-heading col-md-12">
-                <a {{action 'setMembersTab'}} class="btn btn-default btn-header no-border">Members</a>
-                <a {{action 'setEventsTab'}} class="btn btn-default btn-header no-border">Events</a>
-            </div>
-                <div class="clearfix"></div>
-        
-    
-            {{#if isMembersTab}}
-                {{group-members}}
-            {{else if isEventsTab}}
-                {{group-events}}
-            {{/if}}
-        </div>
+	<div class="col-md-4">
+		{{group-info-panel group=group}}
+	</div>
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading col-md-12">
+				<a {{action 'setMembersTab'}} class="btn btn-default btn-header no-border">Members</a>
+				<a {{action 'setEventsTab'}} class="btn btn-default btn-header no-border">Events</a>
+			</div>
+			<div class="clearfix"></div>
+		
+			{{#if isMembersTab}}
+				{{group-members members=group.members}}
+			{{else if isEventsTab}}
+				{{group-events events=group.events}}
+			{{/if}}
+		</div>
+	</div>
 </div>
 

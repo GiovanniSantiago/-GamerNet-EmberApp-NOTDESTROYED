@@ -37,7 +37,8 @@ var dummyData = {
 			members:[0,1,2,3],
 			relatedGames:[1],
 			relatedGenres:["PUZZLE","ZEN","SANDBOX","COOKING"],
-			posts:[0,1]
+			posts:[0,1],
+			events:[]
 		},
 		{
 			group_id:1,
@@ -48,7 +49,8 @@ var dummyData = {
 			members:[0,1,2,3],
 			relatedGames:[0],
 			relatedGenres:["TORTURE SIM","EXISTENTIAL PHILOSOPHICAL","RATED AO","WARGAME SIMULATOR SIMULATOR"],
-			posts:[2,3]
+			posts:[2,3],
+			events:[]
 		}
 	],
 	matchrequest:[
@@ -86,6 +88,15 @@ var dummyData = {
 			text:"THIS PART IS REALLY HARD. THUMB UP IF YOU THINK I SHOULD ASK FOR HELP IN A MATCH REQUEST.",
 			image:"http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Triller-icon.png",
 			owner_id:0
+		},
+		{
+			post_id:1,
+			title:"OH MY GOD WE CAN POST IN GROUPS THIS IS AMAZING",
+			author_id:0,
+			category:"AMAZE",
+			text:"WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA WOW MUCH PROGRESS SUCH DYNAMIC VERY DATA ",
+			image:"http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Triller-icon.png",
+			owner_id:4
 		}
 	],
 	review:[
