@@ -1,0 +1,31 @@
+<form class="form-horizontal" {{action "submitPost" on="submit"}}>
+	<div class="form-group">
+		<label class="col-md-2 control-label">Title</label>
+		<div class="col-md-10">
+			{{input value=title class="form-control" placeholder="Untitled" name="title"}}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">Message</label>
+		<div class="col-md-10">
+			{{textarea value=body class="form-control" rows="5"}}
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="postAuthorId" class="col-md-2 control-label">AuthorId</label>
+		<div class="col-md-10">
+			{{input value=authorId class="form-control" placeholder="0"}}
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="postOwnerId" class="col-md-2 control-label">OwnerId</label>
+		<div class="col-md-10">
+			{{input value=ownerId class="form-control" placeholder="0"}}
+		</div>
+	</div>
+	<div class="form-group">
+	    <div class="col-md-offset-2 col-md-10">
+	    	<button type="submit" class="btn btn-default">Submit Post</button>
+	    </div>
+	</div>
+</form>

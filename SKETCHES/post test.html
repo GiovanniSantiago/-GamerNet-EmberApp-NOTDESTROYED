@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body> 
+		<nav class="navbar navbar-default navbar-static-top"> <!-- MAIN NAVBAR -->
+			<div class="container-fluid">
+				<!-- Non-Collapsed area -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Gamer:Net</a>
+				</div>
+				
+				<!-- Collapsible area -->
+				<div class="collapse navbar-collapse" id="collapse-navbar-1">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Game List</a></li>
+						<li><a href="#">Group List</a></li>
+						<li class="active"><a href="#">Events & Matchmaking</a></li>
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav> <!-- END NAVBAR -->
+		
+		<!-- ----------------------------------------------------##############################################-------------------------------------------------- -->
+		<h1> POST STUFF </h1>
+		<div class="container">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label for="postTitleDiv" class="col-md-2 control-label">Title</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="postTitleDiv" placeholder="Untitled">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="postBodyDiv" class="col-md-2 control-label">Message</label>
+					<div class="col-md-10">
+						<textarea class="form-control" rows="5" id="postBodyDiv"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="postAuthorId" class="col-md-2 control-label">AuthorId</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="postAuthorId" placeholder="0">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="postOwnerId" class="col-md-2 control-label">OwnerId</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="postOwnerId" placeholder="0">
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
