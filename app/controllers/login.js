@@ -6,9 +6,9 @@ export default Ember.Controller.extend({
 	password:"",
 	actions:{
 		validateUser(){
-			ember.$.get("gamer-net.herokuapp.com/json/user",function(data){
+			Ember.$.get("gamer-net.herokuapp.com/json/user",function(data){
 				alert(data);
 			});
 		}
 	}
-})
+});
