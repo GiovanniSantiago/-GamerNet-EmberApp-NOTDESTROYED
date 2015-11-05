@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
                     alert("validate user. "+data);
               
             },function(data){
-                alert("validate user fails."+data);
+                alert("validate user fails."+data.email);
             });
 		}
 	}
