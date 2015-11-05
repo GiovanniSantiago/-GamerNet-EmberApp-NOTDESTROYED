@@ -1,5 +1,4 @@
 @ECHO off
-
-xcopy /s /y C:\Users\Wilson\Documents\Proyectos\ICOM5016-GamerNet-WebView\dist C:\Users\Wilson\Documents\Proyectos\ICOM5016-GamerNet\public
-
+SET srv=C:\Users\Intrebute\Documents\School\activator-1.3.6-minimal\GAMERNET\public
+xcopy ".\dist" %srv% /Y /S
 echo Done
