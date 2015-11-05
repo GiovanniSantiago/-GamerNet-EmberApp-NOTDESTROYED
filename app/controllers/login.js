@@ -2,13 +2,17 @@ import Ember from 'ember';
 import Ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
-	email:"",
-	password:"",
+	email:"email",
+	password:"password",
 	actions:{
 		validateUser(){
-			Ember.$.get("gamer-net.herokuapp.com/json/user",function(data){
-				alert(data);
-			});
+			Ember.$.post("//gamer-net.herokuapp.com/json/validateUser",{"email": "this.email","password":"this.password"}).then(function(data){
+                
+                    alert("validate user. "+data);
+              
+            },function(data){
+                alert("validate user fails."+data);
+            });
 		}
 	}
 });
