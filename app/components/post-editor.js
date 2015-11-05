@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import ajax from 'ic-ajax';
+import URLs from 'gamer-net-ember/configs/urls.js';
 
 export default Ember.Component.extend({
 	classNames:['container'],
@@ -11,7 +12,7 @@ export default Ember.Component.extend({
 		submitPost() {
 			console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
 			ajax({
-				url:"http://gamer-net.herokuapp.com/post",
+				url:URLs.restify("post"),
 				contentType:"application/json",
 				data: JSON.stringify({
 					title:this.get('title'),
