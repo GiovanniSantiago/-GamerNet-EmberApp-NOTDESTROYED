@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 	password:"password",
 	actions:{
 		validateUser(){
-			Ember.$.post("//gamer-net.herokuapp.com/json/validateUser",{"email": "this.email","password":"this.password"}).then(function(data){
+			Ember.$.post("//api-gamer-net.herokuapp.com/json/validateUser",{"email": "this.email","password":"this.password"}).then(function(data){
                 
                     alert("validate user. "+data);
               
