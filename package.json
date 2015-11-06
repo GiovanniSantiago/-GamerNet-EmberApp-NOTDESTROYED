@@ -41,12 +41,9 @@
     "ember-data": "1.13.8",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3"
-<<<<<<< HEAD
-  }
-=======
+
   },
   "cacheDirectories":[
 	"node_modules", "bower_components"
   ]
->>>>>>> 19bcdd4f5819b98e7f30b4d7623cb693f9b84ee5
 }
