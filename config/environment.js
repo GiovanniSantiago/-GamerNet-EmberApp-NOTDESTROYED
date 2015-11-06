@@ -2,7 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'gamer-net-ember',
+
+    modulePrefix: 'gamernet-ember-3',
+
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

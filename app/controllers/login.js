@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
+
 	email:"",
 	password:"",
     validate:true,
@@ -27,6 +28,7 @@ Ember.$.ajax({
 //            },function(data){
 //                console.log("validate user fails."+JSON.stringify(data));
 //            });
+
 		}
 	}
 });
