@@ -1,7 +1,9 @@
 {
+
   "name": "gamernet-ember-3",
   "version": "0.0.0",
   "description": "Small description for gamernet-ember-3 goes here",
+
   "private": true,
   "directories": {
     "doc": "doc",
@@ -19,7 +21,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+
 	"bower":"1.5.3",
+
     "broccoli-asset-rev": "^2.1.2",
     "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.5.0",
@@ -37,6 +41,7 @@
     "ember-data": "1.13.8",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3"
+
   },
   "cacheDirectories":[
 	"node_modules", "bower_components"

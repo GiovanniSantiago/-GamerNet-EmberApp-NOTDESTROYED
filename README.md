@@ -1,3 +1,4 @@
+
 # Gamernet-ember-3
 
 This README outlines the details of collaborating on this Ember application.
