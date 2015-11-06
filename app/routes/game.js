@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Adapter from 'gamer-net-ember/adapters/adapter';
+import Adapter from 'gamernet-ember-3/adapters/adapter';
 
 export default Ember.Route.extend({
 	model: function(params) {
