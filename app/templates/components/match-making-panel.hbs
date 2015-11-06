@@ -1,0 +1,26 @@
+<!-- In components/match-making-panel.js
+this is set to <div class="panel panel-default"> -->
+<!-- Component parameters:
+		matchmakings:
+			match[]:
+				requesterId
+				gameId
+				consoles[]
+				title
+				description
+		<testing>matchmakings:
+			matchId[]
+-->
+<div class="panel-heading">
+    <h1 class="panel-title">Matchmaking</h1>
+</div>
+<ul class="list-group">
+	{{#each matchmakings as |match|}}
+		Matchmaking ID: [{{match}}]
+		<!--{{match-making-request requester=match.requester consoles=match.consoles title=match.title description=match.description tagName="li" classNames="list-group-item"}}-->
+	{{else}}
+		<li class="list-group-item">
+			<p class="text-muted">No match requests yet ; ^;</p>
+		</li>
+	{{/each}}
+</ul>

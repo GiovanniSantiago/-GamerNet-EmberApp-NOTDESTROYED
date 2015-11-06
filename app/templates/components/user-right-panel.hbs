@@ -1,0 +1,21 @@
+
+<div class="panel-heading">
+	<div class="btn-group pull-right" role="group">
+		<button class="btn btn-default btn-header no-border" {{action "setGamesTab"}}>Games</button>
+		<button class="btn btn-default btn-header no-border" {{action "setFriendsTab"}}>Friends</button>
+		<button class="btn btn-default btn-header no-border" {{action "setGroupsTab"}}>Groups</button>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div class="panel-body scrollable-400">
+	
+		{{#if isGamesTab}}
+			{{user-gamelist-panel gamelists=user.gamelists}}
+		{{else if isFriendsTab}}
+			{{user-friendlist-panel friends=user.friends}}<!-- FIXFIXIFX-->
+		{{else if isGroupsTab}}
+			{{game-group-list-panel relatedGroups=user.groups}}<!-- FIXFIXIFX-->
+		{{/if}}
+   
+</div>

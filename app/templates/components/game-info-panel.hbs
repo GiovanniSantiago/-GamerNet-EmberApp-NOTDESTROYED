@@ -1,0 +1,29 @@
+<div class="panel-heading">
+	<h3 class="panel-title text-center">{{name}}</h3>
+</div>
+<div class="panel-body">
+	<!--FIRST ROW-->
+	<div class="row">
+		<!--FIRST COLUMN-->
+		<div class="col-md-4 col-sm-6">
+			<img src={{image}} class="img-responsive"/>
+			<div class="row">
+				<div class="btn-group col-md-6 col-md-offset-3"  role="group">
+					<a href="#" class="btn btn-default btn-block no-border">Add to Wishlist</a>
+					<a href="#" class="btn btn-default btn-block no-border">Add to Own</a>
+					<a href="#" class="btn btn-default btn-block no-border">Add to played list</a>
+				</div>
+			</div>
+		</div>
+
+		<!--SECOND COLUMN-->
+		<div class="col-md-8 col-sm-6">
+			<div class="well well-lg">
+				<div class="panel panel-default">
+					Consoles: <ul class="inline-block">{{#each consoles as |console|}}<li>{{console}}</li>{{else}}<li class="text-muted">No consoles...?</li>{{/each}}</ul>
+				</div>
+				{{description}}
+			</div>
+		</div>
+	</div>
+</div>

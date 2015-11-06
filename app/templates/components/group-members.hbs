@@ -1,0 +1,16 @@
+<!--
+in
+	members[]:
+		user_id
+		name
+	<testing>member[]: (member_id)
+-->
+{{#each members as |member|}}
+	<li class="list-group-item">
+		{{#link-to 'user' member}}ID: {{member}}{{/link-to}}
+	</li>
+{{else}}
+	<li class="list-group-item text-muted">
+		No members here. How lonely ;^;
+	</li>
+{{/each}}

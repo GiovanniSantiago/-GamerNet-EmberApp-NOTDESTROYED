@@ -1,0 +1,35 @@
+<div class="panel-heading">
+	<div class="btn-group pull-right" role="group">
+		<a href="#" class="btn btn-default btn-header no-border">Newest</a>
+		<a href="#" class="btn btn-default btn-header no-border">Highlights</a>
+	</div>
+	<h1>Posts</h1>
+	<div class="clearfix"></div>
+</div>
+
+<ul class="list-group scrollable-800">
+	{{#each posts as |post|}}
+		<li class="list-group-item">
+			<div>
+				<h3>{{post.title}}</h3>
+			</div>
+			<div class="row">
+				<div class="col-md-1">
+					<img class="img-responsive" src={{avatar}} />
+				</div>
+				<div class={{if post.image "col-md-7" "col-md-11"}}>
+					<p class="med-item-desc">
+						{{post.text}}
+					</p>
+				</div>
+				{{#if post.image}}
+				<div class="col-md-4">
+					<img class="img-responsive" src={{post.image}} />
+				</div>
+				{{/if}}
+			</div>
+		</li>
+	{{else}}
+		<li class="list-group-item text-muted">I haven't said or done anything, how boring ;^;</li>
+	{{/each}}
+</ul>

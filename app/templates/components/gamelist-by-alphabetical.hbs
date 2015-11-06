@@ -1,0 +1,110 @@
+<!--POPULAR AND ALPHABETICS BUTTONS BEGIN-->
+
+<div class="btn-group pull-right">
+	<a href="#" class="btn btn-default btn-header">Popular</a>
+	<a href="#" class="btn btn-default btn-header">A - H</a>
+	<a href="#" class="btn btn-default btn-header">I - N</a>
+	<a href="#" class="btn btn-default btn-header">O - T</a>
+	<a href="#" class="btn btn-default btn-header">U - Z</a>
+</div>
+
+<div class="clearfix"></div>
+
+<!--POPULAR DROPDOWN-->
+<div class="panel panel-default">
+	<div class="panel-heading">
+
+		<a role="button" data-toggle="collapse" href="#popular-collapse">
+			<p>Games <span class="caret"></span></p>
+		</a>
+
+		<ul class="list-group collapse" id="popular-collapse">
+			{{#each gamelist as |game|}}
+				<li class="list-group-item">{{#link-to "game" game.game_id}}ID: {{game.name}}{{/link-to}}</li>
+				<!-- <li class="list-group-item">{{#link-to "game" game.game_id}}{{game.name}}{{/link-to}}</li> -->
+			{{else}}
+				<li class="list-group-item text-muted">No games ;^;</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+
+
+
+
+<!--ALPHABETICAL DROPDOWN-->
+<div class="panel panel-default">
+	<div class="panel-heading">
+
+	<a role="button" data-toggle="collapse" href="#alphabetical-collapse">
+		<p>Alphabetical <span class="caret"></span></p>
+	</a>
+
+		<ul class="list-group collapse" id="alphabetical-collapse">
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+		</ul>
+	</div>
+</div>
+
+
+		<!--BY CONSOLE-->
+<div class="panel panel-default">
+	<div class="panel-heading">
+
+		<a role="button" data-toggle="collapse" href="#console-collapse">
+			<p>By Console<span class="caret"></span></p>
+		</a>
+
+		<ul class="list-group collapse" id="console-collapse">
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+		</ul>
+	</div>
+</div>
+
+
+		<!-- BY GENRE-->
+<div class="panel panel-default">
+	<div class="panel-heading">
+
+		<a role="button" data-toggle="collapse" href="#genre-collapse">
+			<p>By Genre<span class="caret"></span></p>
+		</a>
+
+		<ul class="list-group collapse" id="genre-collapse">
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+			<li class="list-group-item">Game #1</li>
+		</ul>
+	</div>
+</div>

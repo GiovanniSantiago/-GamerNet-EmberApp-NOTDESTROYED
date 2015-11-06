@@ -1,0 +1,72 @@
+<!-- In components/general-group-list-panel.js
+this is set to <div class="panel panel-default"> -->
+<!-- Component parameters:
+		relatedGroups:
+			group:
+				groupId
+				name
+				description
+				memberCount
+				firstMembers[]
+		<testing>relatedGroups:
+			groupId[]
+-->
+{{#each groups as |group|}}
+<li class="list-group-item li-size">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="pull-right">
+				<p class="text-muted">Group id:</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="col-md-6">
+			{{group.group_id}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="pull-right">
+				<p class="text-muted">Group name:</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="col-md-6">
+			{{#link-to 'group' group.group_id}}{{group.name}}{{/link-to}}
+		</div>
+	</div>
+<!--<div class="row">
+		<div class="col-md-4"><p class="text-muted">Name </p></div> 
+		<div class="col-md-6">{{group.name}}</div> 
+	</div>
+
+	<div class="row">
+		<div class="col-md-4"><p class="text-muted">Description: </p></div> 
+		<div class="col-md-6">{{group.description}}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"><p class="text-muted">Total Members: </p></div> 
+		<div class="col-md-6">{{group.memberCount}}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"><p class="text-muted">Some Members: </p></div> 
+		<div class="col-md-6">
+			<li class="list-group">
+				{{#each group.firstMembers as |mem|}}
+					<ul class="list-group-item">{{mem.name}}</ul>
+				{{else}}
+					<ul class="list-group-item">
+						<p class="text-muted">No members! ;^;</p>
+					</ul>
+				{{/each}}
+			</li>
+		</div>
+	</div>-->
+</li>
+{{else}}
+<li class="list-group-item">
+	<p class="text-muted">
+		No groups. How lonely! ;^;
+	</p>
+</li>
+{{/each}}
