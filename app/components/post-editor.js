@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 		submitPost() {
 			console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
 			ajax({
-				url:URLs.restify("post"),
+				url:"",
 				contentType:"application/json",
 				data: JSON.stringify({
 					title:this.get('title'),
