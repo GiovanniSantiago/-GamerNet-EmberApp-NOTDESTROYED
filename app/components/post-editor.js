@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import ajax from 'ic-ajax';
-import URLs from 'gamer-net-ember/configs/urls.js';
 
 export default Ember.Component.extend({
 	classNames:['container'],
