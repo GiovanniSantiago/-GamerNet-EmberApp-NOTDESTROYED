@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
                                 "middle_name":this.middle_name,
                                 "last_name":this.last_name,
                                 "email":this.email,
-                                "user_name":ths.user_name,
+                                "user_name":this.user_name,
                                 "password":this.password,
                                 "country":this.country,
                                 "date_of_birth":this.date_of_birth};
