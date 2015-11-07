@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-import Adapter from 'gamernet-ember-3/adapters/adapter';
+import Store from 'gamernet-ember-3/models/store';
 
 
 export default Ember.Route.extend({

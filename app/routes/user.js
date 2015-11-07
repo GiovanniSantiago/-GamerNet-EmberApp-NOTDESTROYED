@@ -7,8 +7,8 @@ export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
 		console.log(params.game_id);
-		let res = adapter.find("user",params.user_id);
+		let res = adapter.findPlain("user",params.user_id);
 		console.log(res);
-		return {user:res,userPosts:adapter.accumCustom("post","owner_id",res.owner_id)};
+		return {user:res,userPosts:adapter.findOwnedPosts(res.owner_id)};
 	}
 });
