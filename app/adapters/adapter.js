@@ -223,15 +223,51 @@ let accumBy = function(array, propname, value)
 
 export default Ember.Object.extend({
 	find: function(name,id){
+		console.log("\n\n\nDEPRECATED CALL TO Adapter.find\n\n\n");
 		console.log("FIND ("+name+","+id+")");
 		return searchBy(dummyData[name],name+"_id",id);
 	},
 	accumCustom: function(name,param,val){
+		console.log("\n\n\nDEPRECATED CALL TO Adapter.accumCustom\n\n\n");
 		console.log("ACCUMCUSTOM ("+name+","+param+","+val+")");
 		return accumBy(dummyData[name],param,val);
 	},
 	getAll: function(name){
+		console.log("\n\n\nDEPRECATED CALL TO Adapter.getAll\n\n\n");
 		console.log("GETALL ("+name+")");
 		return dummyData[name];
+	},
+	
+	findPlain: function(entity,id,data) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/"+entity+"/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		if(data) {
+			settings.data=JSON.stringify(data);
+		}
+		return Ember.$.ajax(settings);
+	},
+	
+	findOwnedPosts: function(id) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/post/owner/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		return Ember.$.ajax(settings);
+	},
+	
+	findAuthorPosts: function(id) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/post/author/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		return Ember.$.ajax(settings);
 	}
 });
