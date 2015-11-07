@@ -3,8 +3,16 @@ import Ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
 
-	email:"",
-	password:"",
+	validate_email:"",
+	validate_password:"",
+    first_name:"",
+    middle_name:"",
+    last_name:"",
+    email:"",
+    user_name:"",
+    password:"",
+    country:"",
+    date_of_birth:"",
     validate:true,
 	actions:{
 		validateUser(){
@@ -29,6 +37,19 @@ export default Ember.Controller.extend({
 //                console.log("validate user fails."+JSON.stringify(data));
 //            });
 
-		}
+                }
+            });
+            
+        },
+        createUser(){
+            var data = {"first_name":this.first_name,
+    "middle_name":this.middle_name,
+    "last_name":this.last_name,
+    "email":this.email,
+    "user_name":ths.user_name,
+    "password":this.password,
+    "country":this.country,
+    "date_of_birth":this.date_of_birth}
+        }
 	}
 });
