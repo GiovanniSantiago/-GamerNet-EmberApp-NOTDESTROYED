@@ -11,22 +11,21 @@ export default Ember.Component.extend({
 	actions:{
 		submitPost() {
 			console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
-			ajax({
-                url:"",
-				contentType:"application/json",
+			Ember.$.ajax({
+				type: "POST",
+				url: "//api-gamer-net.herokuapp.com/json/post",
+				processData: false,
+				contentType: 'application/json',
 				data: JSON.stringify({
 					title:this.get('title'),
 					text_body:this.get('body'),
 					author_id:this.get('authorId'),
 					post_owner_id:this.get('ownerId')
-				}),
-				dataType: "json",
-				method: "POST"
-			}).then(function done(obj) {
-				console.log(obj);
-			},function error() {
-				console.log("AAAAAAAAAAA");
+				})
+			}).then(function(data) {
+				console.log(JSON.stringify(data));
 			});
+			
 		}
 	}
 });

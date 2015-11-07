@@ -9,16 +9,16 @@ export default Ember.Controller.extend({
 	actions:{
 		validateUser(){
             var data = { "email" : this.email,"password":this.password };
-Ember.$.ajax({
-    type: "POST",
-    url: "//api-gamer-net.herokuapp.com/json/validateUser",
-    processData: false,
-    contentType: 'application/json',
-    data: JSON.stringify(data),
-    success: function(result) {
-        console.log(result);
-
-}});
+			Ember.$.ajax({
+				type: "POST",
+				url: "//api-gamer-net.herokuapp.com/json/validateUser",
+				processData: false,
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				success: function(result) {
+					console.log(result);
+				}
+			});
             
             ////
 //			Ember.$.post("//api-gamer-net.herokuapp.com/json/validateUser",JSON.stringify({"email": "this.email","password":"this.password"})).then(function(data){
