@@ -53,7 +53,8 @@ export default Ember.Controller.extend({
                             contentType: 'application/json',
                             data: JSON.stringify(data),
                             success: function(result) {
-                                console.log(result);
+                                this.email=result.email;
+                                this.password=result.password;
                             },
                             error: function(result){
                                 console.log(JSON.stringify(result));
