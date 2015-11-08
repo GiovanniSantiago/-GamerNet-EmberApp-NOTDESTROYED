@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
 		let res = adapter.findAll("group").then(function(result){
-            console.log(result);
+            console.log(JSON.stringify(result));
         });
         }
 });
