@@ -6,8 +6,8 @@ import Adapter from 'gamernet-ember-3/adapters/adapter';
 export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
-		let res = adapter.getAll("group");
-		console.log(res);
-		return res;
-	}
+		let res = adapter.findAll("group").then(function(result){
+            console.log(result);
+        });
+        }
 });
