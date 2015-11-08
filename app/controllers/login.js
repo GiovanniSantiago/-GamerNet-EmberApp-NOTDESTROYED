@@ -56,7 +56,7 @@ export default Ember.Controller.extend({
                                 this.validate_email=result.user_id;
                                 this.validate_password=result.password;
                                 console.log(JSON.stringify(result));
-                                console.log(JSON.stringify(result.email)+" "+JSON.stringify(result.password));
+                                console.log(JSON.stringify(result.user_id)+" "+JSON.stringify(result.password));
                             },
                             error: function(result){
                                 console.log(JSON.stringify(result));
