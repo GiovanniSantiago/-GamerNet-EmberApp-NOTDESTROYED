@@ -324,10 +324,13 @@ export default Ember.Object.extend({
         }
         return Ember.$.ajax(settings);
     },
+	
+	
 	getGames: function(orderBy,amount,offset) {
+		var url = "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=JSON&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc";
 		var settings = {
 			type: "GET",
-			url: "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=JSON&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc",
+			url:url,
 			processData: false,
 			cotentType: 'application/json',
 			dataType:"jsonp"
