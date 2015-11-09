@@ -236,8 +236,7 @@ export default Ember.Object.extend({
 		console.log("\n\n\nDEPRECATED CALL TO Adapter.getAll\n\n\n");
 		console.log("GETALL ("+name+")");
 		return dummyData[name];
-	},
-	
+	},	
 	findPlain: function(entity,id,data) {
 		var settings = {
 			type: "GET",
@@ -269,5 +268,17 @@ export default Ember.Object.extend({
 			contentType: 'application/json'
 		};
 		return Ember.$.ajax(settings);
-	}
+	},
+    findAll:  function(direction,data){
+        var settings = {
+            type: "GET",
+            url: "//api-gamer-net.herokuapp.com/json/"+direction,
+            processData: false,
+            contentType: 'application/json'
+        };
+        if(data){
+            settings.data =JSON.stringify(data);
+        }
+        return Ember.$.ajax(settings);
+    }
 });
