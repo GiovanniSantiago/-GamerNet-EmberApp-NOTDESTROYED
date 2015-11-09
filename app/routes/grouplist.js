@@ -9,7 +9,7 @@ export default Ember.Route.extend({
             let adapter = Adapter.create();
             let response = adapter.findAll("group").then(function(result){
                     return result;                        
-                };)
+                });
             return response;                            
             }
 });
