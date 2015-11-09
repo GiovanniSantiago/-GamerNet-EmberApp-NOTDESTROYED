@@ -35,6 +35,10 @@ export default Ember.Controller.extend({
             
                     },
         createUser(){
+            
+             beforeModel(){
+                this.transitionToRoute('user');
+            }
 
             var data = {    "first_name":this.first_name,
                             "middle_name":this.middle_name,
@@ -59,9 +63,7 @@ export default Ember.Controller.extend({
                                 console.log(JSON.stringify(result));
                             }   
                         });
-            beforeModel(){
-                this.transitionToRoute('user');
-            }
+           
             
         }
 	}
