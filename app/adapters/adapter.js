@@ -226,7 +226,11 @@ var passLog = function(mes) {
 		console.log(mes);
 		return d;
 	};
-}
+};
+
+var clog = function(m) {
+	console.log(m);
+};
 
 export default Ember.Object.extend({
 	find: function(name,id){
@@ -317,5 +321,29 @@ export default Ember.Object.extend({
             settings.data =JSON.stringify(data);
         }
         return Ember.$.ajax(settings);
-    }
+    },
+	getGames: function(orderBy,amount,offset) {
+		var settings = {
+			type: "GET",
+			url: "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=JSON&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc",
+			processData: false,
+			cotentType: 'application/json'
+		};
+		clog("request sending for gamelist");
+		return Ember.$.ajax(settings).then(function(d) {
+			clog("data here! Processing...");
+			var data = d.results;
+			var result = data.map(function(obj) {
+				clog("processing item...");
+				return {
+					desc:obj.deck,
+					image:obj.image.screen_url,
+					name:obj.name,
+					game_id:obj.name
+				};
+			});
+			clog("done!");
+			return result;
+		});
+	}
 });
