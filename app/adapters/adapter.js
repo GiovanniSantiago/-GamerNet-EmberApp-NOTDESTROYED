@@ -331,8 +331,6 @@ export default Ember.Object.extend({
 		var settings = {
 			type: "GET",
 			url:url,
-			processData: true,
-			cotentType: 'application/json',
 			dataType:"jsonp"
 		};
 		clog("request sending for gamelist");
