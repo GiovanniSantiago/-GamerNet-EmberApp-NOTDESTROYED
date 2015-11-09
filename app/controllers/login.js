@@ -59,6 +59,9 @@ export default Ember.Controller.extend({
                                 console.log(JSON.stringify(result));
                             }   
                         });
+            beforeModel(){
+                this.transitionToRoute('user');
+            }
             
         }
 	}
