@@ -4,13 +4,11 @@ import Adapter from 'gamernet-ember-3/adapters/adapter';
 
 
 export default Ember.Route.extend({
-    groups:undefined,
-	model: function(params) {
-            let adapter = Adapter.create();
-            let response = adapter.findAll("group").then(function(result){
-                console.log(result);
-                    return result;                        
-                });
-                                     
-            }
+   	model(){
+        let adapter = Adapter.create();
+            let response = adapter.findAll("group");
+        console.log(response);
+        return response;
+            
+    } 
 });
