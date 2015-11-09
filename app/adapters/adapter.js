@@ -221,6 +221,13 @@ let accumBy = function(array, propname, value)
 	return res;
 };
 
+var passLog = function(mes) {
+	return function(d) {
+		console.log(mes);
+		return d;
+	};
+}
+
 export default Ember.Object.extend({
 	find: function(name,id){
 		console.log("\n\n\nDEPRECATED CALL TO Adapter.find\n\n\n");
@@ -290,13 +297,14 @@ export default Ember.Object.extend({
 			contentType: 'application/json'
 		};
 		
+		console.log("Begun Promise.all([owns,wishes,likes])")
 		return Promise.all([
-			Ember.$.ajax(settingsOwns),
-			Ember.$.ajax(settingsWishes),
-			Ember.$.ajax(settingsLikes)
+			Ember.$.ajax(settingsOwns).then(passLog("Owns received")),
+			Ember.$.ajax(settingsWishes).then(passLog("Wishes received")),
+			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
 		]).then(function(arr) {
 			return {owns:arr[0],wishes:arr[1],likes:arr[2]};
-		});
+		}).then(passLog("All gamelists received"));
 	},
     findAll:  function(direction,data){
         var settings = {
