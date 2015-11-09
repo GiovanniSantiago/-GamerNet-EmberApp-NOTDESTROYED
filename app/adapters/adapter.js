@@ -331,7 +331,7 @@ export default Ember.Object.extend({
 		var settings = {
 			type: "GET",
 			url:url,
-			processData: false,
+			processData: true,
 			cotentType: 'application/json',
 			dataType:"jsonp"
 		};
