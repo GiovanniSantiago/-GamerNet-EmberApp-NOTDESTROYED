@@ -22,7 +22,7 @@ parameters:
 			<p class="text-muted text-right">Name:</p>
 		</div>
 		<div class="col-md-8">
-			<p>{{user.name}}:{{user.user_id}}</p>
+			<p>{{user.first_name+user.middle_name+user.last_name}}:{{user.user_id}}</p>
 		</div>
 	</div>
 	<div class="row">
@@ -39,14 +39,6 @@ parameters:
 		</div>
 		<div class="col-md-8">
 			<p>{{user.country}}</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<p class="text-muted text-right">Languages:</p>
-		</div>
-		<div class="col-md-8">
-			<p>{{user.languages}}</p>
 		</div>
 	</div>
 </div>
