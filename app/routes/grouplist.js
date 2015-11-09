@@ -8,6 +8,7 @@ export default Ember.Route.extend({
 	model: function(params) {
             let adapter = Adapter.create();
             let response = adapter.findAll("group").then(function(result){
+                console.log(result);
                     return result;                        
                 });
             return response;                            
