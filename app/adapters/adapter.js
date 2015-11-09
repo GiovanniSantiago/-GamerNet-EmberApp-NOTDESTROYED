@@ -329,7 +329,8 @@ export default Ember.Object.extend({
 			type: "GET",
 			url: "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=JSON&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc",
 			processData: false,
-			cotentType: 'application/json'
+			cotentType: 'application/json',
+			dataType:"jsonp"
 		};
 		clog("request sending for gamelist");
 		return Ember.$.ajax(settings).then(function(d) {
@@ -341,7 +342,7 @@ export default Ember.Object.extend({
 					desc:obj.deck,
 					image:obj.image.screen_url,
 					name:obj.name,
-					game_id:obj.name
+					game_id:obj.id
 				};
 			});
 			clog("done!");
