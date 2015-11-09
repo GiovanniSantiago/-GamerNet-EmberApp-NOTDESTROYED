@@ -342,7 +342,7 @@ export default Ember.Object.extend({
 					desc:obj.deck,
 					image:obj.image.screen_url,
 					name:obj.name,
-					game_id:obj.name
+					game_id:obj.id
 				};
 			});
 			clog("done!");
