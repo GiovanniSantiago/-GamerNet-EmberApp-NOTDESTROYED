@@ -8,8 +8,9 @@ export default Ember.Route.extend({
         let adapter = Adapter.create();
             let response = adapter.findAll("group").then(function(rsut){
                 console.log(rsut);
+                return rsut;
             });
-        console.log(response);
+        console.log("response: "+response);
         
             
     } 
