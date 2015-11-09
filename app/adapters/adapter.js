@@ -232,6 +232,8 @@ var clog = function(m) {
 	console.log(m);
 };
 
+var api_key="10d7880d03935ceb08f8e5a8cea4159e56c6b247";
+
 export default Ember.Object.extend({
 	find: function(name,id){
 		console.log("\n\n\nDEPRECATED CALL TO Adapter.find\n\n\n");
