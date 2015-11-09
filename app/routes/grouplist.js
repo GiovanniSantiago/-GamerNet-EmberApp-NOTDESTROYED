@@ -11,6 +11,6 @@ export default Ember.Route.extend({
                 console.log(result);
                     return result;                        
                 });
-            return response;                            
+                                     
             }
 });
