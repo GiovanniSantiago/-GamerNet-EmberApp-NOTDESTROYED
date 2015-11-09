@@ -10,7 +10,7 @@ export default Ember.Route.extend({
 		let res = adapter.findAll("group").then(function(result){
             console.log(JSON.stringify(result));
     this.set('groups',result);
-    console.log(this.groups[1].name);
+    console.log(this.groups[0].name);
         }.bind(this));
         }
 });
