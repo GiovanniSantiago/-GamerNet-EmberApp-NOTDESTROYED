@@ -10,6 +10,9 @@ export default Ember.Route.extend({
 		return res.then(function(dat) {
 			console.log(dat);
 			return adapter.findOwnedPosts(dat.post_owner_id).then(function(posts) {
+				dat.full_name=function() {
+					return dat.first_name + dat.middle_name + dat.last_name;
+				};
 				return {user:dat,userPosts:posts};
 			});
 		});
