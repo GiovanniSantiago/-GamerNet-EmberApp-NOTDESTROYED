@@ -58,7 +58,7 @@ export default Ember.Controller.extend({
                                 console.log("transition complete");
                             },
                             error: function(result){
-                                console.log(JSON.stringify(result));
+                                console.log(JSON.stringify(result)+" error");
                             }   
                         });
             
