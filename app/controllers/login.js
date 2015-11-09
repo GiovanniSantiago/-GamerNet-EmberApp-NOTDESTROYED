@@ -36,10 +36,6 @@ export default Ember.Controller.extend({
                     },
         createUser(){
             
-             beforeModel(){
-                this.transitionToRoute('user');
-            }
-
             var data = {    "first_name":this.first_name,
                             "middle_name":this.middle_name,
                             "last_name":this.last_name,
@@ -58,6 +54,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
+                                this.transitionToRoute('matchmaking');
                             },
                             error: function(result){
                                 console.log(JSON.stringify(result));
