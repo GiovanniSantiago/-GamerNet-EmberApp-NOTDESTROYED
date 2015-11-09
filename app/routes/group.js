@@ -8,7 +8,7 @@ export default Ember.Route.extend({
 		let adapter = Adapter.create();
 		console.log(params.group_id);
 		let res = adapter.find("group",params.group_id);
-		console.log("group: ++ "res);
+		console.log("group: ++ "+res);
 		return {group:res,groupPosts:adapter.accumCustom("post","owner_id",res.owner_id)};
 
 	}
