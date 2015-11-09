@@ -13,9 +13,9 @@
 		{{#if isGamesTab}}
 			{{user-gamelist-panel gamelists=user.gamelists}}
 		{{else if isFriendsTab}}
-			{{user-friendlist-panel friends=user.friends}}<!-- FIXFIXIFX-->
+			{{user-friendlist-panel friends=user.friends}}
 		{{else if isGroupsTab}}
-			{{game-group-list-panel relatedGroups=user.groups}}<!-- FIXFIXIFX-->
+			{{user-grouplist-panel relatedGroups=user.groups}}
 		{{/if}}
    
 </div>

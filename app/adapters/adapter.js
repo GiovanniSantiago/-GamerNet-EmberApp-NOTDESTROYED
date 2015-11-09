@@ -269,6 +269,35 @@ export default Ember.Object.extend({
 		};
 		return Ember.$.ajax(settings);
 	},
+	
+	findUserGamelists: function(user_id) {
+		var settingsOwns = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/owns/"+user_id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		var settingsWishes = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/wishesFor/"+user_id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		var settingsLikes = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/likes/"+user_id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		
+		return Promise.all([
+			Ember.$.ajax(settingsOwns),
+			Ember.$.ajax(settingsWishes),
+			Ember.$.ajax(settingsLikes)
+		]).then(function(arr) {
+			return {owns:arr[0],wishes:arr[1],likes:arr[2]};
+		});
+	},
     findAll:  function(direction,data){
         var settings = {
             type: "GET",
