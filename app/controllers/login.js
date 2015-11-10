@@ -27,16 +27,17 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
-                                self.transitionToRoute('grouplist');
+                                self.transitionToRoute('user'+result.user_id);
                                 console.log('transition complete');
                             },
-                            error: function(result){
+                            error:function(result){
                                 console.log(JSON.stringify(result));
                             }
                         });
             
                     },
         createUser(){
+            var self = this;
 
             var data = {    "first_name":this.first_name,
                             "middle_name":this.middle_name,
@@ -56,7 +57,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(" response correct: "+result);
-                               
+                                self.transitionToRoute('user/'+result.user_id);
                                 console.log("transition complete");
                             },
                             error: function(result){
