@@ -327,15 +327,13 @@ export default Ember.Object.extend({
 	
 	
 	getGames: function(orderBy,amount,offset) {
-		var url = "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=jsonp&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc";
+		var url = "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=JSON&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc";
 		var settings = {
 			type: "GET",
 			url:url,
-			dataType:"jsonp",
-			jsonp:false,
 			crossDomain:true
 		};
-		clog("request sending for gamelist");
+		clog("sending request for gamelist");
 		return Ember.$.ajax(settings).then(function(d) {
 			clog("data here! Processing...");
 			var data = d.results;
