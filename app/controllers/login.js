@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Ajax from 'ic-ajax';
+import App from 'gamernet-ember-3/app';
 
 export default Ember.Controller.extend({
     
