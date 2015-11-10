@@ -3,7 +3,7 @@ import Ajax from 'ic-ajax';
 import App from 'gamernet-ember-3/controllers/application';
 
 export default Ember.Controller.extend({
-    testApp:'asdfasdf '+App.firstName,
+    testApp:'asdfasdf '+App.App,
 	validate_email:"",
 	validate_password:"",
     first_name:"",
