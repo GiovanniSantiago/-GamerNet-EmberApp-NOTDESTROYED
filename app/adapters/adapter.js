@@ -346,7 +346,7 @@ export default Ember.Object.extend({
 			}
 		};
 		clog("sending request for gamelist");
-		return Ember.$.getJSON(GetGamesUrl, function(r){clog(r);});/*.then(function(d) {
+		return Ember.$.getJSON(GetGamesUrl, function(r){clog(r);return 2;}).then(function(d){clog(d);});/*.then(function(d) {
 			clog("data here! Processing...");
 			var data = d.results;
 			var result = data.map(function(obj) {
