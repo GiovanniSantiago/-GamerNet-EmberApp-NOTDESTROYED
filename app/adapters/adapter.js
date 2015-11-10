@@ -332,7 +332,8 @@ export default Ember.Object.extend({
 			type: "GET",
 			url:url,
 			dataType:"jsonp",
-			jsonp:false
+			jsonp:false,
+			crossDomain:true
 		};
 		clog("request sending for gamelist");
 		return Ember.$.ajax(settings).then(function(d) {
