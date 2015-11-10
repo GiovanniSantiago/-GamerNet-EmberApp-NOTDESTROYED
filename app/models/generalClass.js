@@ -1,0 +1,1 @@
+export default Ember.Object.extend({user_id:12}).create();
