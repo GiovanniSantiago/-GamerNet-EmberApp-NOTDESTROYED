@@ -27,7 +27,10 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
-                                self.transitionToRoute('user'+result.user_id);
+                                afterModel(model, transition) {                                  
+                                    self.transitionTo('user', model.get('user_id'));
+                                    }
+                                 }
                                 console.log('transition complete');
                             },
                             error:function(result){
@@ -57,8 +60,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(" response correct: "+result);
-                                afterModel(model, transition) {
-                                     
+                                afterModel(model, transition) {                                  
                                     self.transitionTo('user', model.get('user_id'));
                                     }
                                  }
