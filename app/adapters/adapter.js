@@ -328,7 +328,7 @@ export default Ember.Object.extend({
 	
 	
 	getGames: function(amount,offset) {
-		var GetGamesUrl = baseUrl + '/games?api_key'+api_key+'&format=jsonp'
+		var GetGamesUrl = baseUrl + '/games?api_key='+api_key+'&format=jsonp'
 			+'&limit='+(amount || 100)
 			+'&offset='+offset
 			+'&field_list=name,deck,id,image,platforms'
