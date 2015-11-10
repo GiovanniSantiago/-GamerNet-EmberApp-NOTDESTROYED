@@ -369,17 +369,18 @@ export default Ember.Object.extend({
 			+'&field_list=deck,id,image,name,platforms'
 			+'&json_callback=?';
 		return Promise.all([
-			Ember.$.getJSON(GetGameUrl).then(function(d) {
+			Ember.$.getJSON(GetGameUrl).then(function(data) {
+				var d = data.results;
 				return {
 					desc:d.deck,
 					image:(d.image && d.image.screen_url)?d.image.screen_url:missingImageUrl,
 					name:d.name,
-					platforms:d.platforms.map(function(plat) {
+					platforms:(d.platforms)?d.platforms.map(function(plat) {
 						return {
 							id:plat.id,
 							name:plat.name
 						};
-					})
+					}) : [],
 				};
 			}),
 			Ember.$.ajax({
