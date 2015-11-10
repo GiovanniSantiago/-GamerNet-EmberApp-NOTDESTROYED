@@ -27,6 +27,8 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
+                                this.transitionToRoute('gamelist');
+                                console.log('transition complete');
                             },
                             error: function(result){
                                 console.log(JSON.stringify(result));
