@@ -3,8 +3,7 @@ import Ajax from 'ic-ajax';
 import App from 'gamernet-ember-3/models/generalClass';
 
 export default Ember.Controller.extend({
-    testApp:'asdfasdf '+App.user_id,
-	validate_email:"",
+    validate_email:"",
 	validate_password:"",
     first_name:"",
     middle_name:"",
@@ -30,6 +29,7 @@ export default Ember.Controller.extend({
                                 console.log(result);
                                 console.log(JSON.stringify(result));
                                 console.log(result.user_id);
+                                App.user_id =13;
                                 self.transitionToRoute('user',result.user_id);
                                 console.log('transition complete');
                             },

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 import Adapter from 'gamernet-ember-3/adapters/adapter';
-
+import App from 'gamernet-ember-3/models/generalClass'
 export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
