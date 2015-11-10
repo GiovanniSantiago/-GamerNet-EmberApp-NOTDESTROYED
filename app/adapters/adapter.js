@@ -350,7 +350,7 @@ export default Ember.Object.extend({
 			clog("data here! Processing...");
 			var data = d.results;
 			var result = data.map(function(obj) {
-				clog("processing item...");
+				clog("processing item... ["+obj+"]");
 				return {
 					desc:obj.deck,
 					image:obj.image.screen_url,
