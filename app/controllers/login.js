@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Ajax from 'ic-ajax';
-import App from 'Ember.Application';
+import App from 'gamernet-ember-3/app.App';
 
 export default Ember.Controller.extend({
     testApp: App.user_id,
