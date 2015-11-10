@@ -4,6 +4,7 @@ import Adapter from 'gamernet-ember-3/adapters/adapter';
 
 export default Ember.Route.extend({
 	model: function(params) {
+        console.log("app user_id"+App.user_id);
 		let adapter = Adapter.create();
 		console.log(params.game_id);
 		let res = adapter.findPlain("user",params.user_id);
