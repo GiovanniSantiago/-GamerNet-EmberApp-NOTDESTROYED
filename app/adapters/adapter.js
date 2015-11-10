@@ -350,10 +350,10 @@ export default Ember.Object.extend({
 			clog("data here! Processing...");
 			var data = d.results;
 			var result = data.map(function(obj) {
-				clog("processing item... ["+obj+"]");
+				clog("processing item... ["+JSON.stringify(obj)+"]");
 				return {
 					desc:obj.deck,
-					image:obj.image.screen_url,
+					image:(obj.image)?obj.image.screen_url:"http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png",
 					name:obj.name,
 					game_id:obj.id
 				};
