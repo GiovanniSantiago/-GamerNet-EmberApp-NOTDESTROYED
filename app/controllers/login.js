@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Ajax from 'ic-ajax';
+import App from 'Ember.Application';
 
 export default Ember.Controller.extend({
     testApp: App.user_id,
