@@ -8,11 +8,11 @@ export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
 		console.log(params.game_id);
-		var res = Promise.all([
+		/*var res = Promise.all([
 			adapter.getGame(params.game_id),
 			adapter.getReviewsByGame(params.game_id),
 			adapter.get
-		]);
+		]);*/
 		let res = adapter.getGame(params.game_id);
 		return res;
 	}
