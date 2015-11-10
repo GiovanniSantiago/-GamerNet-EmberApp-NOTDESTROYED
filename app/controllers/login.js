@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
                             }
                         });
             
-                    },
+                    }.bind(this),
         createUser(){
 
             var data = {    "first_name":this.first_name,
