@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
-                                self.transitionToRoute('gamelist');
+                                self.transitionToRoute('grouplist');
                                 console.log('transition complete');
                             },
                             error: function(result){
