@@ -386,7 +386,7 @@ export default Ember.Object.extend({
 				url:"//api-gamer-net.herokuapp.com/json/review/game/"+id,
 				type:"GET",
 				processData:false,
-				contentType="application/json"
+				contentType:"application/json"
 			})
 		]).then(function(allArray) {
 			var res = allArray[0];
