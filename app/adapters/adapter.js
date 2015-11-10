@@ -332,7 +332,7 @@ export default Ember.Object.extend({
 			+'&limit='+(amount || 100)
 			+'&offset='+offset
 			+'&field_list=name,deck,id,image,platforms'
-			+'&json_callback=heh';
+			+'&json_callback=?';
 		
 		var settings = {
 			type: "GET",
@@ -346,7 +346,7 @@ export default Ember.Object.extend({
 			}
 		};
 		clog("sending request for gamelist");
-		return Ember.$.ajax(settings).then(function(d) {
+		return Ember.$.getJSON(GetGamesUrl, function(r){clog(r);});/*.then(function(d) {
 			clog("data here! Processing...");
 			var data = d.results;
 			var result = data.map(function(obj) {
@@ -360,6 +360,6 @@ export default Ember.Object.extend({
 			});
 			clog("done!");
 			return result;
-		});
+		});*/
 	}
 });
