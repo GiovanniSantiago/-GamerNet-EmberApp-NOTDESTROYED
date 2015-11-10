@@ -233,6 +233,7 @@ var clog = function(m) {
 };
 
 var api_key="10d7880d03935ceb08f8e5a8cea4159e56c6b247";
+var baseUrl = "http://www.giantbomb.com/api";
 
 export default Ember.Object.extend({
 	find: function(name,id){
@@ -326,15 +327,19 @@ export default Ember.Object.extend({
     },
 	
 	
-	getGames: function(orderBy,amount,offset) {
-		var url = "http://www.giantbomb.com/api/games?api_key="+api_key+"&format=jsonp&limit="+(amount || 100)+"&offset="+offset+"&field_list=name,deck,id,image,platforms&sort="+orderBy+":asc";
+	getGames: function(amount,offset) {
+		var GetGamesUrl = baseUrl + '/games?api_key'+api_key+'&format=json'
+			+'&limit='+(amount || 100)
+			+'&offset='+offset
+			+'&field_list=name,deck,id,image,platforms';
+		
 		var settings = {
 			type: "GET",
-			url:url,
-			dataType:"jsonp",
-			jsonp:false
+			url:GetGamesUrl,
+			crossDomain:true,
+			dataType:"json",
 		};
-		clog("request sending for gamelist");
+		clog("sending request for gamelist");
 		return Ember.$.ajax(settings).then(function(d) {
 			clog("data here! Processing...");
 			var data = d.results;
