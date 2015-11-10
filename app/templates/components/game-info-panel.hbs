@@ -20,7 +20,12 @@
 		<div class="col-md-8 col-sm-6">
 			<div class="well well-lg">
 				<div class="panel panel-default">
-					Consoles: <ul class="inline-block">{{#each consoles as |console|}}<li>{{console}}</li>{{else}}<li class="text-muted">No consoles...?</li>{{/each}}</ul>
+					Consoles: <ul class="inline-block">
+					{{#each consoles as |console|}}
+						<li>{{console.name}}:{{console.id}}</li>
+					{{else}}
+						<li class="text-muted">No consoles...?</li>
+					{{/each}}</ul>
 				</div>
 				{{description}}
 			</div>
