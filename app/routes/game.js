@@ -7,8 +7,7 @@ export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
 		console.log(params.game_id);
-		let res = adapter.find("game",params.game_id);
-		console.log(res);
+		let res = adapter.getGame(params.game_id);
 		return res;
 	}
 });
