@@ -27,6 +27,8 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
+                                console.log(JSON.stringify(result));
+                                console.log(result.user_id);
                                 self.transitionToRoute('user',result.user_id);
                                 console.log('transition complete');
                             },
