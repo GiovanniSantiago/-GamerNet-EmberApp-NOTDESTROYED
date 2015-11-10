@@ -234,6 +234,7 @@ var clog = function(m) {
 
 var api_key="10d7880d03935ceb08f8e5a8cea4159e56c6b247";
 var baseUrl = "http://www.giantbomb.com/api";
+var missingImageUrl = "http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png";
 
 export default Ember.Object.extend({
 	find: function(name,id){
@@ -334,7 +335,7 @@ export default Ember.Object.extend({
 			+'&field_list=name,deck,id,image,platforms'
 			+'&json_callback=?';
 		
-		var settings = {
+		/*var settings = {
 			type: "GET",
 			url:GetGamesUrl,
 			dataType:"jsonp",
@@ -344,7 +345,7 @@ export default Ember.Object.extend({
 			success:function(h){
 				clog("ASDASDASSUCCESS");
 			}
-		};
+		};*/
 		clog("sending request for gamelist");
 		return Ember.$.getJSON(GetGamesUrl).then(function(d) {
 			clog("data here! Processing...");
@@ -353,13 +354,44 @@ export default Ember.Object.extend({
 				clog("processing item... ["+JSON.stringify(obj)+"]");
 				return {
 					desc:obj.deck,
-					image:(obj.image)?obj.image.screen_url:"http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png",
+					image:(obj.image && obj.image.screen_url)?obj.image.screen_url:missingImageUrl,
 					name:obj.name,
 					game_id:obj.id
 				};
 			});
 			clog("done!");
 			return result;
+		});
+	},
+	
+	getGame: function(id) {
+		var GetGameUrl = baseUrl + '/game/'+id+'/?api_key='+api_key+'&format=jsonp'
+			+'&field_list=deck,id,image,name,platforms'
+			+'&json_callback=?';
+		return Promise.all([
+			Ember.$.getJSON(GetGameUrl).then(function(d) {
+				return {
+					desc:d.deck,
+					image:(d.image && d.image.screen_url)?d.image.screen_url:missingImageUrl,
+					name:d.name,
+					platforms:d.platforms.map(function(plat) {
+						return {
+							id:plat.id,
+							name:plat.name
+						};
+					})
+				};
+			}),
+			Ember.$.ajax({
+				url:"//api-gamer-net.herokuapp.com/json/review/game/"+id,
+				type:"GET",
+				processData:false,
+				contentType="application/json"
+			})
+		]).then(function(allArray) {
+			var res = allArray[0];
+			res.reviews = allArray[1];
+			return res;
 		});
 	}
 });
