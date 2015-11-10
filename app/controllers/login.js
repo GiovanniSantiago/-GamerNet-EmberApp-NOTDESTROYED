@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import Ajax from 'ic-ajax';
+import App from 'gameret-ember-3/app';
 
 export default Ember.Controller.extend({
-    
+    testApp: App.user_id,
 	validate_email:"",
 	validate_password:"",
     first_name:"",
