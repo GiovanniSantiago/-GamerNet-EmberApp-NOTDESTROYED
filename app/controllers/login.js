@@ -2,7 +2,7 @@ import Ember from 'ember';
 import Ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
-
+    
 	validate_email:"",
 	validate_password:"",
     first_name:"",
@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
     validate:true,
 	actions:{
 		validateUser(){
-
+            
             var data = { "email" : this.validate_email,"password":this.validate_password };
             var self = this;
             Ember.$.ajax({
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
-                                self.transitionToRoute('user'+result.user_id);
+                                self.transitionToRoute('user',result.user_id);
                                 console.log('transition complete');
                             },
                             error:function(result){
@@ -57,7 +57,6 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(" response correct: "+result);
-                                self.transitionToRoute('user/'+result.user_id);
                                 console.log("transition complete");
                             },
                             error: function(result){
