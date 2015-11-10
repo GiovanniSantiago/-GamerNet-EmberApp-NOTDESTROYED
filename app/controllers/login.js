@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
 		validateUser(){
 
             var data = { "email" : this.validate_email,"password":this.validate_password };
-
+            var self = this;
             Ember.$.ajax({
                             type: "POST",
                             url: "//api-gamer-net.herokuapp.com/json/validateUser",
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(result);
-                                this.transitionToRoute('gamelist');
+                                self.transitionToRoute('gamelist');
                                 console.log('transition complete');
                             },
                             error: function(result){
