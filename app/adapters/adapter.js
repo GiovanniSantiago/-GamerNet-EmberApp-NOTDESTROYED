@@ -1,6 +1,8 @@
 //import ajax from 'ic-ajax';
 import Ember from 'ember';
 
+console.log("LOADED");
+
 var dummyData = {
 	
 	game:[
