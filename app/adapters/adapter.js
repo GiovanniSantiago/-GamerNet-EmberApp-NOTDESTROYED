@@ -328,16 +328,20 @@ export default Ember.Object.extend({
 	
 	
 	getGames: function(amount,offset) {
-		var GetGamesUrl = baseUrl + '/games?api_key'+api_key+'&format=json'
+		var GetGamesUrl = baseUrl + '/games?api_key'+api_key+'&format=jsonp'
 			+'&limit='+(amount || 100)
 			+'&offset='+offset
-			+'&field_list=name,deck,id,image,platforms';
+			+'&field_list=name,deck,id,image,platforms'
+			+'&json_callback=jsonback';
 		
 		var settings = {
 			type: "GET",
 			url:GetGamesUrl,
 			crossDomain:true,
 			dataType:"json",
+			jsonback:function(h) {
+				clog("DID IT DID IT DID IT");
+			}
 		};
 		clog("sending request for gamelist");
 		return Ember.$.ajax(settings).then(function(d) {
