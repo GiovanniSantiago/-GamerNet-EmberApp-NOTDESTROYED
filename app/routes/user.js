@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 import Adapter from 'gamernet-ember-3/adapters/adapter';
-
+import App from 'gamernet-ember-3/models/generalClass'
 export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
@@ -12,7 +12,7 @@ export default Ember.Route.extend({
 			dat.full_name=dat.first_name + dat.middle_name + dat.last_name;
 			dat.gamelists = adapter.findUserGamelists(params.user_id);
 			return adapter.findOwnedPosts(dat.post_owner_id).then(function(posts) {
-				return {user:dat,userPosts:posts};
+				return {user_id:App.user_id,user:dat,userPosts:posts};
 			});
 		});
 		
