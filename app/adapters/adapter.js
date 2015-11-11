@@ -1,8 +1,6 @@
 //import ajax from 'ic-ajax';
 import Ember from 'ember';
 
-console.log("LOADED");
-
 var dummyData = {
 	
 	game:[
@@ -370,31 +368,56 @@ export default Ember.Object.extend({
 		var GetGameUrl = baseUrl + '/game/'+id+'/?api_key='+api_key+'&format=jsonp'
 			+'&field_list=deck,id,image,name,platforms'
 			+'&json_callback=?';
-		return Promise.all([
-			Ember.$.getJSON(GetGameUrl).then(function(data) {
-				var d = data.results;
-				return {
-					desc:d.deck,
-					image:(d.image && d.image.screen_url)?d.image.screen_url:missingImageUrl,
-					name:d.name,
-					platforms:(d.platforms)?d.platforms.map(function(plat) {
-						return {
-							id:plat.id,
-							name:plat.name
-						};
-					}) : [],
-				};
-			}),
-			Ember.$.ajax({
-				url:"//api-gamer-net.herokuapp.com/json/review/game/"+id,
+		return Ember.$.getJSON(GetGameUrl).then(function(data) {
+			var d = data.results;
+			return {
+				desc:d.deck,
+				image:(d.image && d.image.screen_url)?d.image.screen_url:missingImageUrl,
+				name:d.name,
+				platforms:(d.platforms)?d.platforms.map(function(plat) {
+					return {
+						id:plat.id,
+						name:plat.name
+					};
+				}) : [],
+			};
+		});
+	},
+	
+	getReviewsByGame: function(game_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/review/game/"+game_id);
+		/*return Ember.$.ajax({
+			url:"//api-gamer-net.herokuapp.com/json/review/game/"+game_id,
+			type:"GET",
+			processData:false,
+			contentType:"application/json"
+		});*/
+	},
+	
+	getMatchmakingsByGame: function(game_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/match/game/"+game_id);
+		/*return Ember.$.ajax({
+				url:"//api-gamer-net.herokuapp.com/json/match/game/"+game_id,
 				type:"GET",
 				processData:false,
 				contentType:"application/json"
-			})
-		]).then(function(allArray) {
-			var res = allArray[0];
-			res.reviews = allArray[1];
-			return res;
+		});*/
+	},
+	
+	getRelatedGroupsByGame: function(game_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id);
+		/*return Ember.$.ajax({
+				url:"//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id,
+				type:"GET",
+				processData:false,
+				contentType:"application/json"
+		});*/
+	},
+	
+	getMemberCountByGroup: function(group_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/memCount/"+game_id).then(function(d) {
+			return d.count;
 		});
 	}
+	
 });
