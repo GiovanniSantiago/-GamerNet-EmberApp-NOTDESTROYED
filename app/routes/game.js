@@ -12,7 +12,7 @@ export default Ember.Route.extend({
 			adapter.getGame(params.game_id),
 			adapter.getReviewsByGame(params.game_id),
 			adapter.getMatchmakingsByGame(params.game_id),
-			adapter.getRelatedGroupsByGame(paras.game_id)
+			adapter.getRelatedGroupsByGame(params.game_id)
 		]);
 		return res.then(function(data) {
 			return {
