@@ -385,30 +385,33 @@ export default Ember.Object.extend({
 	},
 	
 	getReviewsByGame: function(game_id) {
-		return Ember.$.ajax({
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/review/game/"+game_id);
+		/*return Ember.$.ajax({
 			url:"//api-gamer-net.herokuapp.com/json/review/game/"+game_id,
 			type:"GET",
 			processData:false,
 			contentType:"application/json"
-		});
+		});*/
 	},
 	
 	getMatchmakingsByGame: function(game_id) {
-		return Ember.$.ajax({
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/match/game/"+game_id);
+		/*return Ember.$.ajax({
 				url:"//api-gamer-net.herokuapp.com/json/match/game/"+game_id,
 				type:"GET",
 				processData:false,
 				contentType:"application/json"
-		});
+		});*/
 	},
 	
 	getRelatedGroupsByGame: function(game_id) {
-		return Ember.$.ajax({
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id);
+		/*return Ember.$.ajax({
 				url:"//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id,
 				type:"GET",
 				processData:false,
 				contentType:"application/json"
-		});
+		});*/
 	}
 	
 });
