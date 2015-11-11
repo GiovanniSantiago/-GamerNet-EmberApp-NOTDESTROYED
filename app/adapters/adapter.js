@@ -412,6 +412,12 @@ export default Ember.Object.extend({
 				processData:false,
 				contentType:"application/json"
 		});*/
+	},
+	
+	getMemberCountByGroup: function(group_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/memCount/"+game_id).then(function(d) {
+			return d.count;
+		});
 	}
 	
 });
