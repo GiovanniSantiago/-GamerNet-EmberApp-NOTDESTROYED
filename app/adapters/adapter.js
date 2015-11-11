@@ -395,7 +395,7 @@ export default Ember.Object.extend({
 	
 	getMatchmakingsByGame: function(game_id) {
 		return Ember.$.ajax({
-				url:"//api-gamer-net.herokuapp.com/json/match/game/"+id,
+				url:"//api-gamer-net.herokuapp.com/json/match/game/"+game_id,
 				type:"GET",
 				processData:false,
 				contentType:"application/json"
@@ -404,7 +404,7 @@ export default Ember.Object.extend({
 	
 	getRelatedGroupsByGame: function(game_id) {
 		return Ember.$.ajax({
-				url:"//api-gamer-net.herokuapp.com/json/group/relGame/"+id,
+				url:"//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id,
 				type:"GET",
 				processData:false,
 				contentType:"application/json"
