@@ -221,17 +221,203 @@ let accumBy = function(array, propname, value)
 	return res;
 };
 
+var passLog = function(mes) {
+	return function(d) {
+		console.log(mes);
+		return d;
+	};
+};
+
+var clog = function(m) {
+	console.log(m);
+};
+
+var api_key="10d7880d03935ceb08f8e5a8cea4159e56c6b247";
+var baseUrl = "http://www.giantbomb.com/api";
+var missingImageUrl = "http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png";
+
 export default Ember.Object.extend({
 	find: function(name,id){
+		console.log("\n\n\nDEPRECATED CALL TO Adapter.find\n\n\n");
 		console.log("FIND ("+name+","+id+")");
 		return searchBy(dummyData[name],name+"_id",id);
 	},
 	accumCustom: function(name,param,val){
+		console.log("\n\n\nDEPRECATED CALL TO Adapter.accumCustom\n\n\n");
 		console.log("ACCUMCUSTOM ("+name+","+param+","+val+")");
 		return accumBy(dummyData[name],param,val);
 	},
 	getAll: function(name){
+		console.log("\n\n\nDEPRECATED CALL TO Adapter.getAll\n\n\n");
 		console.log("GETALL ("+name+")");
 		return dummyData[name];
+	},	
+	findPlain: function(entity,id,data) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/"+entity+"/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		if(data) {
+			settings.data=JSON.stringify(data);
+		}
+		return Ember.$.ajax(settings);
+	},
+	
+	findOwnedPosts: function(id) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/post/owner/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		return Ember.$.ajax(settings);
+	},
+	
+	findAuthorPosts: function(id) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/post/author/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		return Ember.$.ajax(settings);
+	},
+	
+	findUserGamelists: function(user_id) {
+		var settingsOwns = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/owns/"+user_id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		var settingsWishes = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/wishesFor/"+user_id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		var settingsLikes = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/likes/"+user_id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		
+		console.log("Begun Promise.all([owns,wishes,likes])")
+		return Promise.all([
+			Ember.$.ajax(settingsOwns).then(passLog("Owns received")),
+			Ember.$.ajax(settingsWishes).then(passLog("Wishes received")),
+			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
+		]).then(function(arr) {
+			return {owns:arr[0],wishes:arr[1],likes:arr[2]};
+		}).then(passLog("All gamelists received"));
+	},
+    findAll:  function(direction,data){
+        var settings = {
+            type: "GET",
+            url: "//api-gamer-net.herokuapp.com/json/"+direction,
+            processData: false,
+            contentType: 'application/json'
+        };
+        if(data){
+            settings.data =JSON.stringify(data);
+        }
+        return Ember.$.ajax(settings);
+    },
+	
+	
+	getGames: function(amount,offset) {
+		var GetGamesUrl = baseUrl + '/games?api_key='+api_key+'&format=jsonp'
+			+'&limit='+(amount || 100)
+			+'&offset='+offset
+			+'&field_list=name,deck,id,image,platforms'
+			+'&json_callback=?';
+		
+		/*var settings = {
+			type: "GET",
+			url:GetGamesUrl,
+			dataType:"jsonp",
+			heh:function(h){
+				clog("ASDASDAS");
+			},
+			success:function(h){
+				clog("ASDASDASSUCCESS");
+			}
+		};*/
+		clog("sending request for gamelist");
+		return Ember.$.getJSON(GetGamesUrl).then(function(d) {
+			clog("data here! Processing...");
+			var data = d.results;
+			var result = data.map(function(obj) {
+				clog("processing item... ["+JSON.stringify(obj)+"]");
+				return {
+					desc:obj.deck,
+					image:(obj.image && obj.image.screen_url)?obj.image.screen_url:missingImageUrl,
+					name:obj.name,
+					game_id:obj.id
+				};
+			});
+			clog("done!");
+			return result;
+		});
+	},
+	
+	getGame: function(id) {
+		var GetGameUrl = baseUrl + '/game/'+id+'/?api_key='+api_key+'&format=jsonp'
+			+'&field_list=deck,id,image,name,platforms'
+			+'&json_callback=?';
+		return Ember.$.getJSON(GetGameUrl).then(function(data) {
+			var d = data.results;
+			return {
+				desc:d.deck,
+				image:(d.image && d.image.screen_url)?d.image.screen_url:missingImageUrl,
+				name:d.name,
+				platforms:(d.platforms)?d.platforms.map(function(plat) {
+					return {
+						id:plat.id,
+						name:plat.name
+					};
+				}) : [],
+			};
+		});
+	},
+	
+	getReviewsByGame: function(game_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/review/game/"+game_id);
+		/*return Ember.$.ajax({
+			url:"//api-gamer-net.herokuapp.com/json/review/game/"+game_id,
+			type:"GET",
+			processData:false,
+			contentType:"application/json"
+		});*/
+	},
+	
+	getMatchmakingsByGame: function(game_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/match/game/"+game_id);
+		/*return Ember.$.ajax({
+				url:"//api-gamer-net.herokuapp.com/json/match/game/"+game_id,
+				type:"GET",
+				processData:false,
+				contentType:"application/json"
+		});*/
+	},
+	
+	getRelatedGroupsByGame: function(game_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id);
+		/*return Ember.$.ajax({
+				url:"//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id,
+				type:"GET",
+				processData:false,
+				contentType:"application/json"
+		});*/
+	},
+	
+	getMemberCountByGroup: function(group_id) {
+		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/memCount/"+game_id).then(function(d) {
+			return d.count;
+		});
 	}
+	
 });

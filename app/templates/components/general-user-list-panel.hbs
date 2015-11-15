@@ -1,0 +1,32 @@
+{{#each users as |user|}}
+<li class="list-group-item li-size">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="pull-right">
+				<p class="text-muted">User id:</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="col-md-6">
+			{{user.user_id}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="pull-right">
+				<p class="text-muted">User name:</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="col-md-6">
+			{{#link-to 'user' user.user_id}}{{user.name}}{{/link-to}}
+		</div>
+	</div>
+</li>
+{{else}}
+<li class="list-group-item">
+	<p class="text-muted">
+		No groups. How lonely! ;^;
+	</p>
+</li>
+{{/each}}

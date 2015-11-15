@@ -2,7 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'gamer-net-ember',
+
+    modulePrefix: 'gamernet-ember-3',
+
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -16,7 +18,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+	contentSecurityPolicy:{
+		'default-src':"'self' api-gamer-net.herokuapp.com"
+	}
   };
 
   if (environment === 'development') {
