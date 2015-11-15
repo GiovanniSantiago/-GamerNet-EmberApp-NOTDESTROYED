@@ -10,6 +10,7 @@ export default Ember.Component.extend({
 	actions:{
 		submitPost() {
 			console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
+			Ember.$.post("//api-gamer-net.herokuapp.com/json/post",)
 			ajax({
 				url:"",
 				contentType:"application/json",
