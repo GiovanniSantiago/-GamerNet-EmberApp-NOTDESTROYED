@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Ajax from 'ic-ajax';
 import App from 'gamernet-ember-3/models/generalClass';
+import glob from 'gamernet-ember-3/models/dummy-globaldata'; //Added for testing a placeholder, don't remove!
 
 export default Ember.Controller.extend({
     validate_email:"",
@@ -31,12 +32,13 @@ export default Ember.Controller.extend({
                                 App.user_id =13;
                                 self.transitionToRoute('user',result.user_id);
                                 console.log('transition complete');
+                                glob.logged_user_id = result.user_id;
                             },
                             error:function(result){
                                 console.log(JSON.stringify(result));
                             }
                         });
-            
+
                     },
         createUser(){
             var self = this;
@@ -63,9 +65,9 @@ export default Ember.Controller.extend({
                             },
                             error: function(result){
                                 console.log(JSON.stringify(result)+" error");
-                            }   
+                            }
                         });
-            
+
         }
 	}
 });

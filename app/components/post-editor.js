@@ -9,6 +9,7 @@ export default Ember.Component.extend({
 	ownerId:"0",
 	actions:{
 		submitPost() {
+			let self = this;
 			console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
 			Ember.$.ajax({
 				type: "POST",
@@ -16,15 +17,15 @@ export default Ember.Component.extend({
 				processData: false,
 				contentType: 'application/json',
 				data: JSON.stringify({
-					title:this.get('title'),
-					text_body:this.get('body'),
-					author_id:this.get('authorId'),
-					post_owner_id:this.get('ownerId')
+					title:self.get('title'),
+					text_body:self.get('body'),
+					author_id:self.get('authorId'),
+					post_owner_id:self.get('ownerId')
 				})
 			}).then(function(data) {
 				console.log(JSON.stringify(data));
 			});
-			
+
 		}
 	}
 });
