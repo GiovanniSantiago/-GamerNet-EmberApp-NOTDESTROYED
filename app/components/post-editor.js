@@ -15,8 +15,8 @@ export default Ember.Component.extend({
 			let data = {
 				title:self.get('title'),
 				text_body:self.get('body'),
-				author_id:self.get('authorId'),
-				post_owner_id:self.get('ownerId'),
+				author_id:Number(self.get('authorId')),
+				post_owner_id:Number(self.get('ownerId')),
 				post_category:"GENERAL",
 				datetime:"01100110"
 			};
