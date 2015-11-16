@@ -20,7 +20,9 @@ export default Ember.Component.extend({
 					title:self.get('title'),
 					text_body:self.get('body'),
 					author_id:self.get('authorId'),
-					post_owner_id:self.get('ownerId')
+					post_owner_id:self.get('ownerId'),
+					post_category:"GENERAL",
+					datetime:"01100110"
 				})
 			}).then(function(data) {
 				console.log(JSON.stringify(data));
