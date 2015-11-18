@@ -23,9 +23,6 @@ export default Ember.Controller.extend({
 				data: JSON.stringify(data)
 			}).then(function(data) {
 				console.log(JSON.stringify(data));
-			}).catch(function(error) {
-				console.log("Could not post data. Error:\n");
-				console.log(error);
 			});
 		}
 	}
