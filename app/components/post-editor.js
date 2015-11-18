@@ -10,8 +10,8 @@ export default Ember.Component.extend({
 	actions:{
 		submitPost() {
 			let self = this;
-			console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
-
+			//console.log(this.get('title')+"\n"+this.get('body')+"\n"+this.get('authorId')+"\n"+this.get('ownerId'));
+			this.sendAction('submitPost',self.get('title'),self.get('body'),"GENERAL","01100110");
 			let data = {
 				title:self.get('title'),
 				text_body:self.get('body'),

@@ -3,6 +3,9 @@ import Ember from 'ember';
 import Adapter from 'gamernet-ember-3/adapters/adapter';
 import App from 'gamernet-ember-3/models/generalClass'
 export default Ember.Route.extend({
+	setupController: function(controller,model) {
+		controller.set('model',model);
+	},
 	model: function(params) {
 		let adapter = Adapter.create();
 		console.log(params.game_id);
@@ -15,6 +18,5 @@ export default Ember.Route.extend({
 				return {user_id:App.user_id,user:dat,userPosts:posts};
 			});
 		});
-		
 	}
 });
