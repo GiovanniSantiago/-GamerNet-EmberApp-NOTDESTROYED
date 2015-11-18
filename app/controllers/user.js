@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
 				datetime:date
 			};
 
+			console.log("Sending post");
 			console.log(data);
 			Ember.$.ajax({
 				type: "POST",
