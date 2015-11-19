@@ -32,6 +32,7 @@ export default Ember.Controller.extend({
 				}).then((function(data) {
 					posts.push(data);
 					this.set('userPosts',posts);
+					this.notifyPropertyChange('userPosts');
 				}).bind(this));
 			}).bind(this));
 
