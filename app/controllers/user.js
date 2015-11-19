@@ -36,6 +36,28 @@ export default Ember.Controller.extend({
 				}).bind(this));
 			}).bind(this));
 
-		}
+		},
+		submitFriend() {
+			let data = {
+				user_id:this.get('model').user.user_id,
+				friend_id:session.get('userId'),
+				category:"GENERAL"
+			};
+
+			console.log("requesting friend");
+
+			Ember.$.ajax({
+				type: "POST",
+				url: "//api-gamer-net.herokuapp.com/json/friend",
+				processData: false,
+				contentType: 'application/json',
+				data: JSON.stringify(data)
+			}).then((function(d) {
+				console.log("request successful!");
+			}).bind(this),
+			(function(d) {
+				console.log("request failed!");
+				console.log(d);
+			}).bind(this));
 	}
 });
