@@ -21,9 +21,20 @@ export default Ember.Controller.extend({
 				processData: false,
 				contentType: 'application/json',
 				data: JSON.stringify(data)
-			}).then(function(data) {
+			}).then((function(data) {
 				console.log(JSON.stringify(data));
-			});
+				let posts = this.model.userPosts;
+				Ember.$.ajax({
+					type: "GET",
+					url: "//api-gamer-net.herokuapp.com/json/post/"+data.post_id,
+					processData: false,
+					contentType: 'application/json'
+				}).then((function(data) {
+					posts.push(data);
+					this.set('userPosts',posts);
+				}).bind(this));
+			}).bind(this));
+
 		}
 	}
 });
