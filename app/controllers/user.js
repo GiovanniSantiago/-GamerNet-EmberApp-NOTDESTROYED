@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
 				data: JSON.stringify(data)
 			}).then((function(data) {
 				console.log(JSON.stringify(data));
-				let posts = this.model.userPosts;
+				let posts = this.model.get('userPosts');
 				Ember.$.ajax({
 					type: "GET",
 					url: "//api-gamer-net.herokuapp.com/json/post/"+data.post_id,
