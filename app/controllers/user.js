@@ -59,5 +59,6 @@ export default Ember.Controller.extend({
 				console.log("request failed!");
 				console.log(d);
 			}).bind(this));
+		}
 	}
 });
