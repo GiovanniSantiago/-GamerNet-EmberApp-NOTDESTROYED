@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
 			
 			Ember.$.ajax({
 				type: "POST",
-				url: "//api-gamer-net.herokuapp.com/json/addToGroup",
+				url: "//api-gamer-net.herokuapp.com/json/addUserToGroup",
 				processData: false,
 				contentType: 'application/json',
 				data: JSON.stringify(data)
