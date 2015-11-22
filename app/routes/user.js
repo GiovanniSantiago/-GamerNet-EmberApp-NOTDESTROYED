@@ -17,7 +17,7 @@ export default Ember.Route.extend({
 			return adapter.findOwnedPosts(dat.post_owner_id).then(function(posts) {
 				return adapter.findFriends(params.user_id).then(function(friends) {
 					dat.friends = friends;
-					console.log("DAT IS "+dat);
+					console.log("DAT IS "+JSON.stringify(dat));
 					return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
 				});
 			});
