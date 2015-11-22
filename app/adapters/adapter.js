@@ -313,6 +313,7 @@ export default Ember.Object.extend({
 			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
 		]).then(function(arr) {
 			console.log("Start absurd infogetting...");
+			console.log(arr);
 			return Promise.all(arr.map(function(g) {
 				return self.getGame(g.game_id).then(function(game) {
 					return {game_id:g.game_id,name:game.name};
