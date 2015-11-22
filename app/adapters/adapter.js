@@ -443,16 +443,18 @@ export default Ember.Object.extend({
 				ltype="wishFor";
 				break;
 		}
+		var data = {
+			user_id:user_id,
+			game_id:game_id,
+			platform_id:0
+		};
+
 		var settings = {
 			type: "POST",
 			url: "//api-gamer-net.herokuapp.com/json/"+ltype,
 			processData: false,
 			contentType: 'application/json',
-			data: JSON.stringify({
-				user_id:user_id,
-				game_id:game_id,
-				platform_id:0
-			})
+			data: JSON.stringify(data)
 		};
 		return Ember.$.ajax(settings);
 	},
