@@ -431,6 +431,8 @@ export default Ember.Object.extend({
 	},
 
 	addGamelistItem: function(user_id,type,game_id) {
+		var uid = Number(user_id);
+		var gid = Number(game_id);
 		var ltype;
 		switch(type) {
 			case "OWN":
@@ -444,8 +446,8 @@ export default Ember.Object.extend({
 				break;
 		}
 		var data = {
-			user_id:user_id,
-			game_id:game_id,
+			user_id:uid,
+			game_id:gid,
 			platform_id:0
 		};
 		console.log(data);
