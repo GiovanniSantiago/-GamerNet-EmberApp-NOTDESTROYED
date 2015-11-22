@@ -286,6 +286,7 @@ export default Ember.Object.extend({
 	},
 
 	findUserGamelists: function(user_id) {
+		var self = this;
 		var settingsOwns = {
 			type: "GET",
 			url: "//api-gamer-net.herokuapp.com/json/owns/"+user_id,
@@ -311,7 +312,15 @@ export default Ember.Object.extend({
 			Ember.$.ajax(settingsWishes).then(passLog("Wishes received")),
 			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
 		]).then(function(arr) {
-			return {owns:arr[0],wishes:arr[1],likes:arr[2]};
+			console.log("Start absurd infogetting...");
+			return Promise.all(arr.map(function(g) {
+				return self.getGame(g.game_id).then(function(game) {
+					return {game_id:g.game_id,name:game.name};
+				});
+			})).then(function(everything) {
+				return {owns:everything[0],wishes:everything[1],likes:everything[2]};
+			});
+			
 		}).then(passLog("All gamelists received"));
 	},
     findAll:  function(direction,data){
