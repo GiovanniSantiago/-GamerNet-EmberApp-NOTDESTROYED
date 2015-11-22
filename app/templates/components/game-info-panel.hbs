@@ -9,9 +9,9 @@
 			<img src={{image}} class="img-responsive"/>
 			<div class="row">
 				<div class="btn-group col-md-6 col-md-offset-3"  role="group">
-					<a href="#" class="btn btn-default btn-block no-border">Add to Wishlist</a>
-					<a href="#" class="btn btn-default btn-block no-border">Add to Own</a>
-					<a href="#" class="btn btn-default btn-block no-border">Add to played list</a>
+					<button class="btn btn-default btn-block no-border"  {{action "addWant" on="click"}}><span class="glyphicon glyphicon-plus"></span> I want this game</button>
+					<button class="btn btn-default btn-block no-border"  {{action "addOwn" on="click"}}><span class="glyphicon glyphicon-plus"></span> I own this game</button>
+					<button class="btn btn-default btn-block no-border"  {{action "addLike" on="click"}}><span class="glyphicon glyphicon-plus"></span> I like this game</button>
 				</div>
 			</div>
 		</div>

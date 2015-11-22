@@ -428,6 +428,33 @@ export default Ember.Object.extend({
 		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/memCount/"+game_id).then(function(d) {
 			return d.count;
 		});
-	}
+	},
+
+	addGamelistItem: function(user_id,type,game_id) {
+		var ltype;
+		switch(type) {
+			case "OWN":
+				ltype="own";
+				break;
+			case "LIKE":
+				ltype="like";
+				break;
+			case "WISH":
+				ltype="wishFor";
+				break;
+		}
+		var settings = {
+			type: "POST",
+			url: "//api-gamer-net.herokuapp.com/json/"+ltype,
+			processData: false,
+			contentType: 'application/json',
+			data: JSON.stringify({
+				user_id:user_id,
+				game_id:game_id,
+				platform_id:0
+			})
+		};
+		return Ember.$.ajax(settings);
+	},
 
 });
