@@ -26,10 +26,7 @@ parameters:
 	<ul class="list-group collapse" id="owns-collapse">
 		{{#each gamelists.owns as |game|}}
 			<li class="list-group-item">
-				{{#link-to 'game' game.game_id}}{{game.name}}{{/link-to}}
-				<!--
-				{{#link-to 'game' game}}{{game}}{{/link-to}}
-				-->
+				{{#link-to 'game' game.game_id}}{{game.game_id}}{{/link-to}}
 			</li>
 		{{else}}
 			<li class="list-group-item text-muted">
@@ -46,10 +43,7 @@ parameters:
 	<ul class="list-group collapse" id="wishes-collapse">
 		{{#each gamelists.wishes as |game|}}
 			<li class="list-group-item">
-				{{#link-to 'game' game}}{{game}}{{/link-to}}
-				<!--
-				{{#link-to 'game' game.game_id}}{{game.name}}{{/link-to}}
-				-->
+				{{#link-to 'game' game.game_id}}{{game.game_id}}{{/link-to}}
 			</li>
 		{{else}}
 			<li class="list-group-item text-muted">
@@ -66,10 +60,7 @@ parameters:
 	<ul class="list-group collapse" id="likes-collapse">
 		{{#each gamelists.likes as |game|}}
 			<li class="list-group-item">
-				{{#link-to 'game' game}}{{game}}{{/link-to}}
-				<!--
-				{{#link-to 'game' game.game_id}}{{game.name}}{{/link-to}}
-				-->
+				{{#link-to 'game' game.game_id}}{{game.game_id}}{{/link-to}}
 			</li>
 		{{else}}
 			<li class="list-group-item text-muted">
