@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Adapter from 'gamernet-ember-3/adapters/adapter';
-import General from 'gamernet-ember-3/models/';
+import General from 'gamernet-ember-3/models/generalClass';
 
 export default Ember.Controller.extend({
 	actions:{
