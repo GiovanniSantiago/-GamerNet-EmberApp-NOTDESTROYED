@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 				title:title,
 				text_body:body,
 				author_id:session.get('authorId'),
-				post_owner_id:this.get('model').user.post_owner_id,
+				post_owner_id:this.get('model').group.post_owner_id,
 				post_category:category,
 				datetime:date
 			};
@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
 					processData: false,
 					contentType: 'application/json'
 				}).then((function(data) {
-					this.get('model').get('userPosts').pushObject(data);
+					this.get('model').get('groupPosts').pushObject(data);
 				}).bind(this));
 			}).bind(this));
 		}
