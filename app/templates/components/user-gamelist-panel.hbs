@@ -19,7 +19,6 @@ parameters:
 			game_id
 -->
 <div class="panel panel-default">
-	{{gamelists}} AKSDJSAKJD
 	<div class="panel-heading"><a role="button" data-toggle="collapse" href="#owns-collapse">
 		<p>Owns <span class="caret"></span></p>
 		</a>
@@ -28,11 +27,11 @@ parameters:
 		{{#each gamelists.owns as |game|}}
 			<li class="list-group-item">
 				{{#link-to 'game' game}}{{game}}{{/link-to}}
-				<!-- 
+				<!--
 				{{#link-to 'game' game.game_id}}{{game.name}}{{/link-to}}
 				-->
 			</li>
-		{{else}} 
+		{{else}}
 			<li class="list-group-item text-muted">
 				I'm poor and have no games ;^;
 			</li>
@@ -48,7 +47,7 @@ parameters:
 		{{#each gamelists.wishes as |game|}}
 			<li class="list-group-item">
 				{{#link-to 'game' game}}{{game}}{{/link-to}}
-				<!-- 
+				<!--
 				{{#link-to 'game' game.game_id}}{{game.name}}{{/link-to}}
 				-->
 			</li>
@@ -68,7 +67,7 @@ parameters:
 		{{#each gamelists.likes as |game|}}
 			<li class="list-group-item">
 				{{#link-to 'game' game}}{{game}}{{/link-to}}
-				<!-- 
+				<!--
 				{{#link-to 'game' game.game_id}}{{game.name}}{{/link-to}}
 				-->
 			</li>
