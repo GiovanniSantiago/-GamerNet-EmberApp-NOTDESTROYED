@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 			console.log("END SUCCESS");
 		},
 		addWant() {
-			adapter.addGamelistItem(General.user_id,"WANT",this.get('model').game_id);
+			adapter.addGamelistItem(General.user_id,"WISH",this.get('model').game_id);
 		},
 		addLike() {
 			adapter.addGamelistItem(General.user_id,"LIKE",this.get('model').game_id);
