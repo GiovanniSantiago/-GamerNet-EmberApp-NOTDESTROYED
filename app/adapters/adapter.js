@@ -318,9 +318,10 @@ export default Ember.Object.extend({
 					return {game_id:g.game_id,name:game.name};
 				});
 			})).then(function(everything) {
+				console.log("absurd infogetting done");
 				return {owns:everything[0],wishes:everything[1],likes:everything[2]};
 			});
-			
+
 		}).then(passLog("All gamelists received"));
 	},
     findAll:  function(direction,data){
