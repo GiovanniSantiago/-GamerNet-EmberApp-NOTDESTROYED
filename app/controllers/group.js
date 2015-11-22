@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import session from 'gamernet-ember-3/models/local-session';
+import App from 'gamernet-ember-3/models/generalClass';
 
 export default Ember.Controller.extend({
 	actions: {
@@ -33,6 +34,24 @@ export default Ember.Controller.extend({
 					this.get('model').get('groupPosts').pushObject(data);
 				}).bind(this));
 			}).bind(this));
+		},
+		
+		joinGroup(){
+			let data = {user_id:App.user_id,group_id:model.group.group_id}
+			
+			console.log("Sending addMember");
+			console.log(data);
+			
+			Ember.$.ajax({
+				type: "POST",
+				url: "//api-gamer-net.herokuapp.com/json/addToGroup",
+				processData: false,
+				contentType: 'application/json',
+				data: JSON.stringify(data)
+			}).then(function(data){
+				console.log(data);
+			})
+			
 		}
 	}
 });

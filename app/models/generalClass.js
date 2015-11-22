@@ -1,1 +1,1 @@
-export default Ember.Object.create();
+export default Ember.Object.create({isLog:false});
