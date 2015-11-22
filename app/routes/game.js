@@ -25,7 +25,8 @@ export default Ember.Route.extend({
 				platforms:data[0].platforms,
 				matchmakings:data[2],
 				groups:data[3],
-				reviews:data[1]
+				reviews:data[1],
+				game_id:params.game_id
 			};
 		});
 	}
