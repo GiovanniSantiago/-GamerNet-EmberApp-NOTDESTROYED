@@ -448,7 +448,7 @@ export default Ember.Object.extend({
 			game_id:game_id,
 			platform_id:0
 		};
-
+		console.log(data);
 		var settings = {
 			type: "POST",
 			url: "//api-gamer-net.herokuapp.com/json/"+ltype,
