@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
                                 console.log(result);
                                 console.log(JSON.stringify(result));
                                 console.log(result.user_id);
-                                App.user_id =result.user_id;
+                                App.set("user_id",result.user_id);
                                 self.transitionToRoute('user',result.user_id);
                                 console.log('transition complete');
                                 glob.logged_user_id = result.user_id;
