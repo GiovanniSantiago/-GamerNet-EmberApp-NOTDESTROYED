@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import General from 'gamernet-ember-3/models/';
 var session = Ember.Object.create({
 	loggedIn: false,
 	userId: 0,
@@ -8,4 +9,4 @@ var session = Ember.Object.create({
 
 
 
-export default session;
+export default General;

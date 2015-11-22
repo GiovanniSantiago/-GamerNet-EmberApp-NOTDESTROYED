@@ -1,5 +1,5 @@
 <div class="container"> <!-- finished datafying -->
-    {{game-info-panel consoles=model.platforms description=model.desc image=model.image name=model.name}}
+    {{game-info-panel consoles=model.platforms description=model.desc image=model.image name=model.name onAddOwn="addOwn" onAddWant="addWant" onAddLike="addLike"}}
           <!--SECOND ROW-->
     <div class="row">
         <div class="col-md-4">
@@ -18,4 +18,3 @@
       </div>
     </div>
 </div>
-
