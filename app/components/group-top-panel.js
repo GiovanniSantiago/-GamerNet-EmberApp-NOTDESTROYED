@@ -8,7 +8,11 @@ export default Ember.Component.extend({
     
     actions:{
         setMembersTab(){this.set('activeTab','MEMBERS');console.log('members');},
-        setEventsTab(){this.set('activeTab','EVENTS');console.log('events');}
-    }
+        setEventsTab(){this.set('activeTab','EVENTS');console.log('events');},
+		onJoinGroup(){
+			this.sendAction("onJoinGroup");
+		}
+   
+	}
 
 });
