@@ -1,1 +1,1 @@
-export default Ember.Object.extend({}).create();
+export default Ember.Object..create();
