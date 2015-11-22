@@ -30,10 +30,7 @@ export default Ember.Controller.extend({
 					processData: false,
 					contentType: 'application/json'
 				}).then((function(data) {
-					posts.push(data);
-					console.log(posts);
-					console.log(data);
-					this.notifyPropertyChange('userPosts');
+					this.get('model').get('userPosts').pushObject(data);
 				}).bind(this));
 			}).bind(this));
 
