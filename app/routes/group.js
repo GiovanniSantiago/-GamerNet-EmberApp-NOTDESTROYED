@@ -9,11 +9,9 @@ export default Ember.Route.extend({
 	model: function(params) {
 		let adapter = Adapter.create();
 		let res = adapter.findPlain('group',params.group_id);
-		res.then(function(data) {
-			let commonGroup = {};
-			console.log(data);
-			return adapter.findOwnedPosts(data.post_owner_id).then(function(posts) {
-				return Ember.Object.create({group:commonGroup,groupPosts:posts});
+		return res.then(function(groupData) {
+			return adapter.findOwnedPosts(groupData.post_owner_id).then(function(posts) {
+				return Ember.Object.create({group:groupData,groupPosts:posts});
 			});
 		});
 
