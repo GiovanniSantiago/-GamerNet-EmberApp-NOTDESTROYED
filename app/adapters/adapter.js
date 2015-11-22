@@ -314,19 +314,17 @@ export default Ember.Object.extend({
 			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
 		]);
 
-		console.log(rawLists);
+		rawLists.then(function(value) {
+			console.log("rawLists: ",JSON.stringify(value));
+		});
 
 		// rawLists evaluates to [  ]
-		return Promise.all([
-			Ember.$.ajax(settingsOwns).then(passLog("Owns received")),
-			Ember.$.ajax(settingsWishes).then(passLog("Wishes received")),
-			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
-		]).then(function(arr) {
+		return rawLists.then(function(arr) {
 			console.log("Start absurd infogetting...");
 			console.log(arr);
 			return Promise.all(arr.map(function(glist) {
 				//glist contains a list of games. Each must be map'd
-				
+
 				return self.getGame(g.game_id).then(function(game) {
 					return {game_id:g.game_id,name:game.name};
 				});
