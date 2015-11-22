@@ -33,7 +33,6 @@ export default Ember.Controller.extend({
 					this.get('model').get('userPosts').pushObject(data);
 				}).bind(this));
 			}).bind(this));
-
 		},
 		submitFriend() {
 			let data = {
