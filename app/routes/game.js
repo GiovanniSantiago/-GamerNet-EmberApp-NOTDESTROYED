@@ -5,6 +5,9 @@ import Adapter from 'gamernet-ember-3/adapters/adapter';
 import Adapter2 from 'gamernet-ember-3/adapters/adapter';
 
 export default Ember.Route.extend({
+	setupController: function(controller,model) {
+		controller.set('model',model);
+	},
 	model: function(params) {
 		let adapter = Adapter.create();
 		console.log(params.game_id);
