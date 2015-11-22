@@ -15,7 +15,11 @@ export default Ember.Route.extend({
 			dat.full_name=dat.first_name + dat.middle_name + dat.last_name;
 			dat.gamelists = adapter.findUserGamelists(params.user_id);
 			return adapter.findOwnedPosts(dat.post_owner_id).then(function(posts) {
-				return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
+				return adapter.findFriends(params.user_id).then(function(friends) {
+					dat.friends = friends;
+					console.log("DAT IS "+JSON.stringify(dat));
+					return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
+				});
 			});
 		});
 	}

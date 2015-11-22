@@ -8,7 +8,7 @@ in
 <div class="panel-body">
 	{{#each friends as |user|}}
 		<li class="list-group-item">
-			{{#link-to 'user' user}}ID: {{user}}{{/link-to}}
+			{{#link-to 'user' user.user_id}}ID: {{user.name}}{{/link-to}}
 		</li>
 	{{else}}
 		<li class="list-group-item text-muted">

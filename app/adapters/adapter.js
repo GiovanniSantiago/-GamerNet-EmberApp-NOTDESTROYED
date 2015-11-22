@@ -2,7 +2,7 @@
 import Ember from 'ember';
 
 var dummyData = {
-	
+
 	game:[
 		{
 			game_id:0,
@@ -111,7 +111,7 @@ var dummyData = {
 			author_id:0,
 			ratingPoints:1,
 			text:"THIS GAME IS WAY TOO HARD, DON'T BUY, NOBODY WILL HELP YOU BEAT IT!!!!"
-			
+
 		}
 	],
 	user:[
@@ -251,7 +251,7 @@ export default Ember.Object.extend({
 		console.log("\n\n\nDEPRECATED CALL TO Adapter.getAll\n\n\n");
 		console.log("GETALL ("+name+")");
 		return dummyData[name];
-	},	
+	},
 	findPlain: function(entity,id,data) {
 		var settings = {
 			type: "GET",
@@ -264,7 +264,7 @@ export default Ember.Object.extend({
 		}
 		return Ember.$.ajax(settings);
 	},
-	
+
 	findOwnedPosts: function(id) {
 		var settings = {
 			type: "GET",
@@ -274,7 +274,7 @@ export default Ember.Object.extend({
 		};
 		return Ember.$.ajax(settings);
 	},
-	
+
 	findAuthorPosts: function(id) {
 		var settings = {
 			type: "GET",
@@ -284,7 +284,7 @@ export default Ember.Object.extend({
 		};
 		return Ember.$.ajax(settings);
 	},
-	
+
 	findUserGamelists: function(user_id) {
 		var settingsOwns = {
 			type: "GET",
@@ -304,7 +304,7 @@ export default Ember.Object.extend({
 			processData: false,
 			contentType: 'application/json'
 		};
-		
+
 		console.log("Begun Promise.all([owns,wishes,likes])")
 		return Promise.all([
 			Ember.$.ajax(settingsOwns).then(passLog("Owns received")),
@@ -326,15 +326,25 @@ export default Ember.Object.extend({
         }
         return Ember.$.ajax(settings);
     },
-	
-	
+
+	findFriends: function(id) {
+		var settings = {
+            type: "GET",
+            url: "//api-gamer-net.herokuapp.com/json/friend/"+id,
+            processData: false,
+            contentType: 'application/json'
+        };
+		return Ember.$.ajax(settings);
+	},
+
+
 	getGames: function(amount,offset) {
 		var GetGamesUrl = baseUrl + '/games?api_key='+api_key+'&format=jsonp'
 			+'&limit='+(amount || 100)
 			+'&offset='+offset
 			+'&field_list=name,deck,id,image,platforms'
 			+'&json_callback=?';
-		
+
 		/*var settings = {
 			type: "GET",
 			url:GetGamesUrl,
@@ -363,7 +373,7 @@ export default Ember.Object.extend({
 			return result;
 		});
 	},
-	
+
 	getGame: function(id) {
 		var GetGameUrl = baseUrl + '/game/'+id+'/?api_key='+api_key+'&format=jsonp'
 			+'&field_list=deck,id,image,name,platforms'
@@ -383,7 +393,7 @@ export default Ember.Object.extend({
 			};
 		});
 	},
-	
+
 	getReviewsByGame: function(game_id) {
 		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/review/game/"+game_id);
 		/*return Ember.$.ajax({
@@ -393,7 +403,7 @@ export default Ember.Object.extend({
 			contentType:"application/json"
 		});*/
 	},
-	
+
 	getMatchmakingsByGame: function(game_id) {
 		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/match/game/"+game_id);
 		/*return Ember.$.ajax({
@@ -403,7 +413,7 @@ export default Ember.Object.extend({
 				contentType:"application/json"
 		});*/
 	},
-	
+
 	getRelatedGroupsByGame: function(game_id) {
 		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/relGame/"+game_id);
 		/*return Ember.$.ajax({
@@ -413,11 +423,11 @@ export default Ember.Object.extend({
 				contentType:"application/json"
 		});*/
 	},
-	
+
 	getMemberCountByGroup: function(group_id) {
 		return Ember.$.getJSON("//api-gamer-net.herokuapp.com/json/group/memCount/"+game_id).then(function(d) {
 			return d.count;
 		});
 	}
-	
+
 });
