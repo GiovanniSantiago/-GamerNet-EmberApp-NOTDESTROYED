@@ -3,12 +3,17 @@ import Adapter from 'gamernet-ember-3/adapters/adapter';
 
 
 export default Ember.Route.extend({
+	setupController: function(controller,model) {
+		controller.set('model',model);
+	},
 	model: function(params) {
 		let adapter = Adapter.create();
-		console.log(params.group_id);
-		let res = adapter.find("group",params.group_id);
-		console.log("group: ++ "+res);
-		return {group:res,groupPosts:adapter.accumCustom("post","owner_id",res.owner_id)};
+		let res = adapter.findPlain('group',params.group_id);
+		res.then(function(data) {
+			return adapter.findOwnedPosts(data.post_owner_id).then(function(posts) {
+				return Ember.Object.create({group:data,groupPosts:posts});
+			});
+		});
 
 	}
 });
