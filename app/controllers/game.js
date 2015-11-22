@@ -7,8 +7,9 @@ var adapter = Adapter.create();
 export default Ember.Controller.extend({
 	actions:{
 		addOwn() {
-
+			console.log("START SUCCESS");
 			adapter.addGamelistItem(General.user_id,"OWN",this.get('model').game_id);
+			console.log("END SUCCESS");
 		},
 		addWant() {
 			adapter.addGamelistItem(General.user_id,"WANT",this.get('model').game_id);
