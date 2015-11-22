@@ -11,14 +11,13 @@ export default Ember.Route.extend({
 		console.log(params.game_id);
 		let res = adapter.findPlain("user",params.user_id);
 		return res.then(function(dat) {
-			console.log(dat);
 			dat.full_name=dat.first_name + dat.middle_name + dat.last_name;
 			return adapter.findUserGamelists(params.user_id).then(function(gamelists) {
 				return adapter.findOwnedPosts(dat.post_owner_id).then(function(posts) {
 					return adapter.findFriends(params.user_id).then(function(friends) {
 						dat.friends = friends;
-						console.log("DAT IS "+JSON.stringify(dat));
 						dat.gamelists = gamelists;
+						console.log("DAT IS "+JSON.stringify(dat));
 						return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
 					});
 				});
