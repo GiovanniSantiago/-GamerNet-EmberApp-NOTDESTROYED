@@ -10,8 +10,9 @@ export default Ember.Component.extend({
         setMembersTab(){this.set('activeTab','MEMBERS');console.log('members');},
         setEventsTab(){this.set('activeTab','EVENTS');console.log('events');},
 		onJoinGroup(){
-			console.log("group-top-panel onJoinGroup action")
+			
 			this.sendAction("onJoinGroup");
+			console.log("group-top-panel onJoinGroup action")
 		}
    
 	}
