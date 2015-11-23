@@ -314,12 +314,61 @@ export default Ember.Object.extend({
 			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
 		]);
 
-		rawLists.then(function(value) {
-			console.log("rawLists: ",JSON.stringify(value));
+		return rawLists.then(function(data) {
+			console.log("rawLists: ",JSON.stringify(data));
+			/*
+				[
+					[ owns:{user_id,game_id,platform_id} ],
+					[ wishes:{user_id,game_id,platform_id} ],
+					[ likes:{user_id,game_id,platform_id} ]
+				]
+			*/
+			return {
+				owns: data[0],
+				wishes: data[1],
+				likes: data[2]
+			};
+
+		}).then(function(data) {
+			/*
+				data:{
+					owns: [ {user_id, game_id, platform_id} ],
+					wishes: [ {user_id, game_id, platform_id} ],
+					likes: [ {user_id, game_id, platform_id} ],
+				}
+			*/
+			//returns a promise that represents all objects of an array with their game name appended
+			var extractGameNames = function(array) {
+				var promises = array.map(function(game) {
+					var gamePromise = self.getGame(game.game_id);
+					return gamePromise.then(function(game_info) {
+						return {
+							user_id: game.user_id,
+							game_id: game.game_id,
+							platform_id: game.platform_id,
+							name: game_info.name
+						};
+					});
+				});
+				return Promise.all(promises);
+			};
+
+			return Promise.all([
+				extractGameNames(data.owns),
+				extractGameNames(data.wishes),
+				extractGameNames(data.likes)
+			]).then(function(arr) {
+				return {
+					owns: arr[0],
+					wishes: arr[1],
+					likes: arr[2]
+				};
+			});
 		});
 
-		// rawLists evaluates to [  ]
-		return rawLists.then(function(arr) {
+
+
+		/*return rawLists.then(function(arr) {
 			console.log("Start absurd infogetting...");
 			console.log(arr);
 			return Promise.all(arr.map(function(glist) {
@@ -333,7 +382,7 @@ export default Ember.Object.extend({
 				return {owns:everything[0],wishes:everything[1],likes:everything[2]};
 			});
 
-		}).then(passLog("All gamelists received"));
+		}).then(passLog("All gamelists received"));*/
 	},
     findAll:  function(direction,data){
         var settings = {
@@ -478,6 +527,15 @@ export default Ember.Object.extend({
 			processData: false,
 			contentType: 'application/json',
 			data: JSON.stringify(data)
+		};
+		return Ember.$.ajax(settings);
+	},
+	findUserGroups: function(user_id) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/group/byMember/"+user_id,
+			processData: false,
+			contentType: 'application/json'
 		};
 		return Ember.$.ajax(settings);
 	},

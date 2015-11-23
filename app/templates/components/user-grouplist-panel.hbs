@@ -1,1 +1,16 @@
-{{yield}}
+<div class="panel panel-default">
+	<div class="panel-heading">
+
+		<a role="button" data-toggle="collapse" href="#popular-collapse">
+			<p>Group <span class="caret"></span></p>
+		</a>
+
+		<ul class="list-group collapse" id="popular-collapse">
+			{{#each grouplist as |group|}}
+				<li class="list-group-item">{{#link-to "group" group.group_id}}{{group.name}}{{/link-to}}</li>
+			{{else}}
+				<li class="list-group-item text-muted">No groups ;^;</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
