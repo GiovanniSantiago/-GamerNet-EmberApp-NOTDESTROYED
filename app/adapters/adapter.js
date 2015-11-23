@@ -532,7 +532,7 @@ export default Ember.Object.extend({
 	},
 	findUserGroups: function(user_id) {
 		var settings = {
-			type: "POST",
+			type: "GET",
 			url: "//api-gamer-net.herokuapp.com/json/group/byMember/"+user_id,
 			processData: false,
 			contentType: 'application/json'
