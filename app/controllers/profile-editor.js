@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 	actions: {
 		updateUser() {
 			var adapter = Adapter.create();
-			adapter.updateUser({
+			var dat = {
 				first_name:this.get('first_name'),
 				middle_name:this.get('middle_name'),
 				last_name:this.get('last_name'),
@@ -24,7 +24,10 @@ export default Ember.Controller.extend({
 				country:this.get('country'),
 				date_of_birth:this.get('date_of_birth'),
 				user_id:session.user_id
-			});
+			};
+			console.log("DAT SEND:");
+			console.log(dat);
+			adapter.updateUser(dat);
 		}
 	}
 });
