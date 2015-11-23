@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
                     console.log(result);
                     console.log(JSON.stringify(result));
                     console.log(result.user_id);
-                    App.set("user_id",result.user_id);
+                    App.set("user_id",Number(result.user_id));
 					App.set("isLog",true);
                     // self.transitionToRoute('user',result.user_id);
                     // console.log('transition complete');
@@ -40,8 +40,8 @@ export default Ember.Controller.extend({
 					adapter.findPlain('user',result.user_id).then(function(userData) {
 						console.log("Fetched user object on login: ");
 						console.log(userData);
-						App.set('author_id',userData.author_id);
-						
+						App.set('author_id',Number(userData.author_id));
+
 						self.transitionToRoute('user',result.user_id);
 	                    console.log('transition complete');
 					});
