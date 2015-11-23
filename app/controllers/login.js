@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import Ajax from 'ic-ajax';
 import App from 'gamernet-ember-3/models/generalClass';
-import glob from 'gamernet-ember-3/models/dummy-globaldata'; //Added for testing a placeholder, don't remove!
+import Adapter from 'gamernet-ember-3/adapters/adapter';
 
 export default Ember.Controller.extend({
     validate_email:"",
@@ -20,26 +20,37 @@ export default Ember.Controller.extend({
             var data = { "email" : this.validate_email,"password":this.validate_password };
             var self = this;
             Ember.$.ajax({
-                            type: "POST",
-                            url: "//api-gamer-net.herokuapp.com/json/validateUser",
-                            processData: false,
-                            contentType: 'application/json',
-                            data: JSON.stringify(data),
-                            success: function(result) {
-                                console.log(result);
-                                console.log(JSON.stringify(result));
-                                console.log(result.user_id);
-                                App.set("user_id",result.user_id);
-                                self.transitionToRoute('user',result.user_id);
-                                console.log('transition complete');
-                                glob.logged_user_id = result.user_id;
-                            },
-                            error:function(result){
-                                console.log(JSON.stringify(result));
-                            }
-                        });
+                type: "POST",
+                url: "//api-gamer-net.herokuapp.com/json/validateUser",
+                processData: false,
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function(result) {
+                    console.log(result);
+                    console.log(JSON.stringify(result));
+                    console.log(result.user_id);
+                    App.set("user_id",result.user_id);
+					App.set("isLog",true);
+                    // self.transitionToRoute('user',result.user_id);
+                    // console.log('transition complete');
+					// moved this commented code to next following lines, so it doesn't mix things up before it fetches the authorId
 
-                    },
+					// Added to also get author_id
+					var adapter = Adapter.create();
+					adapter.findPlain('user',result.user_id).then(function(userData) {
+						console.log("Fetched user object on login: ");
+						console.log(userData);
+						App.set('author_id',userData.author_id);
+						
+						self.transitionToRoute('user',result.user_id);
+	                    console.log('transition complete');
+					});
+                },
+                error:function(result){
+                    console.log(JSON.stringify(result));
+                }
+            });
+        },
         createUser(){
             var self = this;
 
