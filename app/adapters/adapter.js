@@ -549,5 +549,15 @@ export default Ember.Object.extend({
 		};
 		return Ember.$.ajax(settings);
 	},
+	createGroup: function(group) {
+		var settings = {
+			type: "POST",
+			url: "//api-gamer-net.herokuapp.com/json/group",
+			processData: false,
+			contentType: 'application/json',
+			data: JSON.stringify(group)
+		};
+		return Ember.$.ajax(settings);
+	}
 
 });

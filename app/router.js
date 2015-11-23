@@ -24,6 +24,7 @@ Router.map(function() {
   this.route('login',{path:'/login'});
 
   this.route('profileEditor',{path:'/profile'});
+  this.route('groupCreate');
 });
 
 export default Router;
