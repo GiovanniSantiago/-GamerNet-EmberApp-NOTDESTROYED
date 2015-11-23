@@ -50,7 +50,9 @@ export default Ember.Controller.extend({
 				data: JSON.stringify(data)
 			}).then(function(data){
 				console.log(data);
-			},console.log)
+			},function(data){
+				console.log(data);
+			})
 			
 		}
 	}
