@@ -18,12 +18,13 @@ export default Ember.Route.extend({
 						dat.friends = friends;
 						dat.gamelists = gamelists;
 						console.log("DAT IS "+JSON.stringify(dat));
-						return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
+						return adapter.findUserGroups(params.user_id).then(function(groups) {
+							dat.groups = groups;
+							return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
+						});
 					});
 				});
 			});
-		}).then(function(model) {
-			
 		});
 	}
 });
