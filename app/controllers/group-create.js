@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 			var self = this;
 			var adapter = Adapter.create();
 			adapter.createGroup({
-				title:this.get('name'),
+				name:this.get('name'),
 				description:this.get('description'),
 				leader:session.user_id
 			}).then(function(result) {
