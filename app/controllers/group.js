@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 			let data = {
 				title:title,
 				text_body:body,
-				author_id:session.get('authorId'),
+				author_id:session.get('author_id'),
 				post_owner_id:this.get('model').group.post_owner_id,
 				post_category:category,
 				datetime:date
@@ -35,13 +35,13 @@ export default Ember.Controller.extend({
 				}).bind(this));
 			}).bind(this));
 		},
-		
+
 		joinGroup(){
 			let data = {user_id:Number.parseInt(App.user_id ),group_id:this.get("model").group.group_id}
-			
+
 			console.log("Sending addMember");
 			console.log(data);
-			
+
 			Ember.$.ajax({
 				type: "POST",
 				url: "//api-gamer-net.herokuapp.com/json/addUserToGroup",
@@ -53,7 +53,7 @@ export default Ember.Controller.extend({
 			},function(data){
 				console.log(data);
 			})
-			
+
 		}
 	}
 });

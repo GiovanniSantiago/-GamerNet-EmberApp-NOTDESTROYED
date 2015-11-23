@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
 			let data = {
 				title:title,
 				text_body:body,
-				author_id:session.get('authorId'),
+				author_id:session.get('author_id'),
 				post_owner_id:this.get('model').user.post_owner_id,
 				post_category:category,
 				datetime:date
