@@ -11,17 +11,8 @@ export default Ember.Route.extend({
 		let res = adapter.findPlain('group',params.group_id);
 		return res.then(function(groupData) {
 			return adapter.findOwnedPosts(groupData.post_owner_id).then(function(posts) {
-				return adapter.findAll("group/getUsersOf/"+Number.parseInt(params.group_id)).then(function(membersOf){
-					return Ember.Object.create({group:groupData,groupPosts:posts,groupMembers:membersOf});
-				},function(data){
-					console.log(data);
-				});
-				
-			},function(data){
-				console.log(data);
+				return Ember.Object.create({group:groupData,groupPosts:posts});
 			});
-		},function(data){
-			console.log(data);
 		});
 
 	}
