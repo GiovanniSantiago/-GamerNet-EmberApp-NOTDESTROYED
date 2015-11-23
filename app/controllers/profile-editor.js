@@ -27,7 +27,9 @@ export default Ember.Controller.extend({
 			};
 			console.log("DAT SEND:");
 			console.log(dat);
-			adapter.updateUser(dat);
+			adapter.updateUser(dat).then(null,function(error) {
+				console.log(error);
+			});
 		}
 	}
 });
