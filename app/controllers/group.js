@@ -37,7 +37,7 @@ export default Ember.Controller.extend({
 		},
 		
 		joinGroup(){
-			let data = {user_id:App.user_id,group_id:this.get("model").group.group_id}
+			let data = {user_id:Number.parseInt(App.user_id),group_id:this.get("model").group.group_id}
 			
 			console.log("Sending addMember");
 			console.log(data);
