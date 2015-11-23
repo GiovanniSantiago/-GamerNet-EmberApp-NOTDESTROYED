@@ -20,7 +20,9 @@ export default Ember.Route.extend({
 
 						return adapter.findUserGroups(params.user_id).then(function(groups) {
 							dat.groups = groups;
-							console.log("DAT IS "+JSON.stringify(dat));
+							console.log("DAT IS ",dat);
+							console.log("Posts: ");
+							console.log(posts);
 							return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
 						});
 					});
