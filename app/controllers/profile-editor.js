@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
 	date_of_birth:"",
 	actions: {
 		updateUser() {
+			var self = this;
 			var adapter = Adapter.create();
 			var dat = {
 				first_name:this.get('first_name'),
@@ -27,8 +28,8 @@ export default Ember.Controller.extend({
 			};
 			console.log("DAT SEND:");
 			console.log(dat);
-			adapter.updateUser(dat).then(null,function(error) {
-				console.log(error);
+			adapter.updateUser(dat).then(function() {
+				self.transitionToRoute('user',session.user_id);
 			});
 		}
 	}
