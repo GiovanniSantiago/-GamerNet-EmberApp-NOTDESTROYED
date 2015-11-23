@@ -544,7 +544,8 @@ export default Ember.Object.extend({
 			type: "POST",
 			url: "//api-gamer-net.herokuapp.com/json/user/update",
 			processData: false,
-			contentType: 'application/json'
+			contentType: 'application/json',
+			data: JSON.stringify(user)
 		};
 		return Ember.$.ajax(settings);
 	},
