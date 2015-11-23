@@ -315,7 +315,7 @@ export default Ember.Object.extend({
 		]);
 
 		return rawLists.then(function(data) {
-			console.log("rawLists: ",JSON.stringify(value));
+			console.log("rawLists: ",JSON.stringify(data));
 			/*
 				[
 					[ owns:{user_id,game_id,platform_id} ],
