@@ -37,7 +37,7 @@ export default Ember.Controller.extend({
 		submitFriend() {
 			let data = {
 				user_id:this.get('model').user.user_id,
-				friend_id:session.get('userId'),
+				friend_id:session.get('user_id'),
 				category:"GENERAL"
 			};
 
