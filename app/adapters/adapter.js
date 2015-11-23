@@ -314,7 +314,7 @@ export default Ember.Object.extend({
 			Ember.$.ajax(settingsLikes).then(passLog("Likes recieved"))
 		]);
 
-		rawLists.then(function(data) {
+		return rawLists.then(function(data) {
 			console.log("rawLists: ",JSON.stringify(value));
 			/*
 				[
@@ -368,7 +368,7 @@ export default Ember.Object.extend({
 
 
 
-		return rawLists.then(function(arr) {
+		/*return rawLists.then(function(arr) {
 			console.log("Start absurd infogetting...");
 			console.log(arr);
 			return Promise.all(arr.map(function(glist) {
@@ -382,7 +382,7 @@ export default Ember.Object.extend({
 				return {owns:everything[0],wishes:everything[1],likes:everything[2]};
 			});
 
-		}).then(passLog("All gamelists received"));
+		}).then(passLog("All gamelists received"));*/
 	},
     findAll:  function(direction,data){
         var settings = {
