@@ -6,7 +6,7 @@
 		</a>
 
 		<ul class="list-group collapse" id="popular-collapse">
-			{{#each grouplist as |group|}}
+			{{#each userGroups as |group|}}
 				<li class="list-group-item">{{#link-to "group" group.group_id}}{{group.name}}{{/link-to}}</li>
 			{{else}}
 				<li class="list-group-item text-muted">No groups ;^;</li>
