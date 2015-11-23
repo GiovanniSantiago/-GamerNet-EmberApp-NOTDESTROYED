@@ -17,9 +17,10 @@ export default Ember.Route.extend({
 					return adapter.findFriends(params.user_id).then(function(friends) {
 						dat.friends = friends;
 						dat.gamelists = gamelists;
-						console.log("DAT IS "+JSON.stringify(dat));
+
 						return adapter.findUserGroups(params.user_id).then(function(groups) {
 							dat.groups = groups;
+							console.log("DAT IS "+JSON.stringify(dat));
 							return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
 						});
 					});
