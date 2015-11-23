@@ -7,7 +7,7 @@ in
 -->
 {{#each members as |member|}}
 	<li class="list-group-item">
-		{{#link-to 'user' member}}ID: {{member.first_name}}{{/link-to}}
+		{{#link-to 'user' member}}Name: {{member.first_name member.last_name}}{{/link-to}}
 	</li>
 {{else}}
 	<li class="list-group-item text-muted">
