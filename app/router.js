@@ -21,8 +21,9 @@ Router.map(function() {
   this.route('game', {path:'/game/:game_id'});
   this.route('matchmaking');
   this.route('postTest', {});
-    this.route('login',{path:'/login'});
+  this.route('login',{path:'/login'});
 
+  this.route('profile-editor');
 });
 
 export default Router;

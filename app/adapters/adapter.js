@@ -539,5 +539,14 @@ export default Ember.Object.extend({
 		};
 		return Ember.$.ajax(settings);
 	},
+	updateUser: function(user) {
+		var settings = {
+			type: "PUT",
+			url: "//api-gamer-net.herokuapp.com/json/user",
+			processData: false,
+			contentType: 'application/json'
+		};
+		return Ember.$.ajax(settings);
+	},
 
 });
