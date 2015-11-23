@@ -23,7 +23,7 @@ Router.map(function() {
   this.route('postTest', {});
   this.route('login',{path:'/login'});
 
-  this.route('profile-editor');
+  this.route('profileEditor',{path:'/profile'});
 });
 
 export default Router;
