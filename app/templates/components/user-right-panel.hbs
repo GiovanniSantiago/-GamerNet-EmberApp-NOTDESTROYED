@@ -9,13 +9,14 @@
 </div>
 
 <div class="panel-body scrollable-400">
-	
+
 		{{#if isGamesTab}}
 			{{user-gamelist-panel gamelists=user.gamelists}}
 		{{else if isFriendsTab}}
 			{{user-friendlist-panel friends=user.friends}}
 		{{else if isGroupsTab}}
-			{{user-grouplist-panel relatedGroups=user.groups}}
+			{{user-grouplist-panel groups=user.groups}}
+			{{user.groups}}
 		{{/if}}
-   
+
 </div>
