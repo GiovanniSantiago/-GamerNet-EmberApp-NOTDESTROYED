@@ -43,6 +43,10 @@ export default Ember.Controller.extend({
 						App.set("user_id",Number(result.user_id));
 						App.set("isLog",true);
 
+						Ember.$.get("//api-gamer-net.herokuapp.com/json/post/unreadcount/"+result.user_id).then(function(countobj) {
+							App.set("unreadCount",countobj.count);
+						});
+
 						self.transitionToRoute('user',result.user_id);
 	                    console.log('transition complete');
 					});
