@@ -6,7 +6,7 @@ import App from 'gamernet-ember-3/models/generalClass';
 export default Ember.Component.extend({
 	classNames:['container'],
 	title:"untitled",
-	category:,
+	category:"GENERAL",
 	body:"Say something!",
 	authorId:"0",
 	ownerId:"0",
