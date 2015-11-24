@@ -25,6 +25,7 @@ Router.map(function() {
 
   this.route('profileEditor',{path:'/profile'});
   this.route('groupCreate');
+  this.route('unreadPosts',{path:'/unread'});
 });
 
 export default Router;

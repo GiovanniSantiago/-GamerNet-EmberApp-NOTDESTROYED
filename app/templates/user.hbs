@@ -7,5 +7,5 @@
         {{user-right-panel user=model.user}}
     </div>
 </div>
-{{user-post-panel posts=model.userPosts avatar=model.user.avatar}}
+{{user-post-panel posts=model.userPosts avatar=model.user.avatar emptyMessage="I haven't said or done anything, how boring! D:"}}
 {{post-editor onSubmitPost="submitPost"}}
