@@ -1,41 +1,13 @@
 <div class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Matchmaking
+        Event
       </div>
 
       <ul class="list-group">
-        <li class="list-group-item">Name: Wilson<br>Console: PC<br> Title: Test<br> Description:
-          fasdhfasdhfjasdfhkasdfh
-          asdfjaksdfhjkasdfhkjsadhfkjahsdkfjhkasjdhfkjashkfjhaksjfhkahsdf
-          asdfhjaksdfhjkasdhfkjhasdf
-          asasdfasdfasdf.</li>
-          <li class="list-group-item">Name: Wilson<br>Console: PC<br> Title: Test<br> Description:
-          fasdhfasdhfjasdfhkasdfh
-          asdfjaksdfhjkasdfhkjsadhfkjahsdkfjhkasjdhfkjashkfjhaksjfhkahsdf
-          asdfhjaksdfhjkasdhfkjhasdf
-          asasdfasdfasdf.</li>
-          <li class="list-group-item">Name: Wilson<br>Console: PC<br> Title: Test<br> Description:
-          fasdhfasdhfjasdfhkasdfh
-          asdfjaksdfhjkasdfhkjsadhfkjahsdkfjhkasjdhfkjashkfjhaksjfhkahsdf
-          asdfhjaksdfhjkasdhfkjhasdf
-          asasdfasdfasdf.</li>
-          <li class="list-group-item">Name: Wilson<br>Console: PC<br> Title: Test<br> Description:
-          fasdhfasdhfjasdfhkasdfh
-          asdfjaksdfhjkasdfhkjsadhfkjahsdkfjhkasjdhfkjashkfjhaksjfhkahsdf
-          asdfhjaksdfhjkasdhfkjhasdf
-          asasdfasdfasdf.</li>
-          <li class="list-group-item">Name: Wilson<br>Console: PC<br> Title: Test<br> Description:
-          fasdhfasdhfjasdfhkasdfh
-          asdfjaksdfhjkasdfhkjsadhfkjahsdkfjhkasjdhfkjashkfjhaksjfhkahsdf
-          asdfhjaksdfhjkasdhfkjhasdf
-          asasdfasdfasdf.</li>
-          <li class="list-group-item">Name: Wilson<br>Console: PC<br> Title: Test<br> Description:
-          fasdhfasdhfjasdfhkasdfh
-          asdfjaksdfhjkasdfhkjsadhfkjahsdkfjhkasjdhfkjashkfjhaksjfhkahsdf
-          asdfhjaksdfhjkasdhfkjhasdf
-          asasdfasdfasdf.</li>
-
+		  {{#each model as |event|}}
+        <li class="list-group-item">Author Id: {{event.author_id}}<br>Category:{{event.event_post_category}}<br> Title: {{event.title}}<br> Description:{{event.text_body}}</li>
+		  {{/each}}
       </ul>
   </div>
 </div>
