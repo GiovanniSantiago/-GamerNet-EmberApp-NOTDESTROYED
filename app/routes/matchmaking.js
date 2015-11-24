@@ -6,6 +6,6 @@ export default Ember.Route.extend({
 	model: function(params){
 		let adapter = Adapter.create();
 		
-		return adapter.findAll("event_post");
+		return adapter.findAll("eventpost");
 	}
 });
