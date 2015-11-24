@@ -7,8 +7,9 @@ export default Ember.Route.extend({
 		let adapter = Adapter.create();
 		
 		var a= adapter.findAll("eventpost");
+		console.log(JSON.stringify(a));
 		return a;
 		 
-		console.log(JSON.stringify(a));
+		
 	}
 });
