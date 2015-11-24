@@ -541,12 +541,23 @@ export default Ember.Object.extend({
 	},
 	updateUser: function(user) {
 		var settings = {
-			type: "PUT",
-			url: "//api-gamer-net.herokuapp.com/json/user",
+			type: "POST",
+			url: "//api-gamer-net.herokuapp.com/json/user/update",
 			processData: false,
-			contentType: 'application/json'
+			contentType: 'application/json',
+			data: JSON.stringify(user)
 		};
 		return Ember.$.ajax(settings);
 	},
+	createGroup: function(group) {
+		var settings = {
+			type: "POST",
+			url: "//api-gamer-net.herokuapp.com/json/group",
+			processData: false,
+			contentType: 'application/json',
+			data: JSON.stringify(group)
+		};
+		return Ember.$.ajax(settings);
+	}
 
 });
