@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
                     console.log(result);
                     console.log(JSON.stringify(result));
                     console.log(result.user_id);
-                    
+
                     // self.transitionToRoute('user',result.user_id);
                     // console.log('transition complete');
 					// moved this commented code to next following lines, so it doesn't mix things up before it fetches the authorId

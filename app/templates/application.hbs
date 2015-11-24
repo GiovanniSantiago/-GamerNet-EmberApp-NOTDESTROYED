@@ -30,6 +30,7 @@
                 {{#if model.isLog}}
 					<li>{{#link-to 'user' model.user_id}}<span class="glyphicon glyphicon-user"></span> My outside view{{/link-to}}</li>
 					<li>{{#link-to 'profileEditor'}}<span class="glyphicon glyphicon-user"></span> Edit profile{{/link-to}}</li>
+					<li>{{#link-to 'unreadPosts'}}Unread posts{{/link-to}}</li>
 				{{else}}
 					<li>{{#link-to 'login'}}<span class="glyphicon glyphicon-log-out"></span> Login/Register{{/link-to}}</li>
 				{{/if}}
