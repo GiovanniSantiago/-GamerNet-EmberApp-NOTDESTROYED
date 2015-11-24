@@ -3,12 +3,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function() {
-		var settings = {
-			type: "GET",
-			url: "//api-gamer-net.herokuapp.com/json/post/unread"
-		};
 
-		var getPromise = Ember.$.ajax(settings);
+		var getPromise = Ember.$.get("//api-gamer-net.herokuapp.com/json/post/unread");
 		return getPromise.then(function(dat) {
 			var delSettings = {
 				type: "DELETE",
