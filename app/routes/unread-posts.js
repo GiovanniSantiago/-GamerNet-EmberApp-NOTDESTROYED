@@ -11,6 +11,7 @@ export default Ember.Route.extend({
 				type: "DELETE",
 				url: "//api-gamer-net.herokuapp.com/json/post/unread/"+App.user_id
 			};
+			App.set("unreadCount",0);
 			//Delete notified settings.
 			Ember.$.ajax(delSettings);
 
