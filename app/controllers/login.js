@@ -77,7 +77,7 @@ export default Ember.Controller.extend({
 					});
                 },
                 error:function(result){
-                    console.log(JSON.stringify(result));
+                    console.log(JSON.stringify(result)); 
                 }
             });
         },
