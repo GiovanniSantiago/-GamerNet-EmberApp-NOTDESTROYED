@@ -77,6 +77,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(" response correct: "+result);
+								self.transitionToRoute('user',result.user_id);
                                 console.log("transition complete");
 								adapter.findPlain('user',result.user_id).then(function(userData) {
 									App.set('author_id',Number(userData.author_id));
