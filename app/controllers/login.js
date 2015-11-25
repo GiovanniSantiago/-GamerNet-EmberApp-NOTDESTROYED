@@ -16,30 +16,7 @@ export default Ember.Controller.extend({
     date_of_birth:"",
     validate:true,
 	actions:{
-		sendMail=function() {
-    $.ajax({
-      type: 'POST',
-      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-      data: {
-        'key': 'YOUR API KEY HERE',
-        'message': {
-          'from_email': 'wilx94@gmail.com',
-          'to': [
-              {
-                'email': 'wilson.velez1@upr.edu',
-                'name': 'RECIPIENT NAME (OPTIONAL)',
-                'type': 'to'
-              }
-            ],
-          'autotext': 'true',
-          'subject': 'YOUR SUBJECT HERE!',
-          
-        }
-      }
-     }).done(function(response) {
-       console.log(response); // if you're into that sorta thing
-     });
-},
+		
 		validateUser(){
             var data = { "email" : this.validate_email,"password":this.validate_password };
             var self = this;
@@ -72,7 +49,30 @@ export default Ember.Controller.extend({
 						});
 
 						self.transitionToRoute('user',result.user_id);
-						self.sendMail();
+						function() {
+    $.ajax({
+      type: 'POST',
+      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+      data: {
+        'key': 'YOUR API KEY HERE',
+        'message': {
+          'from_email': 'wilx94@gmail.com',
+          'to': [
+              {
+                'email': 'wilson.velez1@upr.edu',
+                'name': 'RECIPIENT NAME (OPTIONAL)',
+                'type': 'to'
+              }
+            ],
+          'autotext': 'true',
+          'subject': 'YOUR SUBJECT HERE!',
+          
+        }
+      }
+     }).done(function(response) {
+       console.log(response); // if you're into that sorta thing
+     });
+}
 	                    console.log('transition complete');
 					});
                 },
