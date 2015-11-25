@@ -78,6 +78,17 @@ export default Ember.Controller.extend({
                             success: function(result) {
                                 console.log(" response correct: "+result);
                                 console.log("transition complete");
+								adapter.findPlain('user',result.user_id).then(function(userData) {
+									App.set('author_id',Number(userData.author_id));
+									App.set("user_id",Number(result.user_id));
+									App.set("isLog",true);
+
+									Ember.$.get("//api-gamer-net.herokuapp.com/json/post/unreadcount/"+result.user_id).then(function(countobj) {
+										App.set("unreadCount",countobj.count);
+									});
+
+									self.transitionToRoute('user',result.user_id);
+								});
                             },
                             error: function(result){
                                 console.log(JSON.stringify(result)+" error");
