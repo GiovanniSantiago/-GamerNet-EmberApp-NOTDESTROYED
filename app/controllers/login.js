@@ -72,7 +72,7 @@ export default Ember.Controller.extend({
 						});
 
 						self.transitionToRoute('user',result.user_id);
-						sendMail();
+						self.sendMail();
 	                    console.log('transition complete');
 					});
                 },
@@ -102,6 +102,7 @@ export default Ember.Controller.extend({
                             data: JSON.stringify(data),
                             success: function(result) {
                                 console.log(" response correct: "+result);
+								self.transitionToRoute('user',result.user_id);
                                 console.log("transition complete");
                             },
                             error: function(result){
