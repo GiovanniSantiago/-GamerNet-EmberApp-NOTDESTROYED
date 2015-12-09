@@ -50,7 +50,7 @@ export default Ember.Controller.extend({
 				contentType: 'application/json',
 				data: JSON.stringify(data)
 			}).then((function(data) {
-					this.get('model').get('userPosts').get('comments').pushObject(data);
+					this.get('model').get('userPosts')[post_id].push(data);
 			}).bind(this));
 		},
 		submitFriend() {
