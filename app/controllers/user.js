@@ -40,7 +40,7 @@ export default Ember.Controller.extend({
 				author_id:session.get('author_id'),
 				text:body
 			};
-
+ 
 			console.log("Sending comment!");
 			console.log(data);
 			Ember.$.ajax({
