@@ -45,21 +45,12 @@ export default Ember.Controller.extend({
 			console.log(data);
 			Ember.$.ajax({
 				type: "POST",
-				url: "//api-gamer-net.herokuapp.com/json/post",
+				url: "//api-gamer-net.herokuapp.com/json/comments",
 				processData: false,
 				contentType: 'application/json',
 				data: JSON.stringify(data)
 			}).then((function(data) {
-				console.log(JSON.stringify(data));
-
-				Ember.$.ajax({
-					type: "GET",
-					url: "//api-gamer-net.herokuapp.com/json/comments",
-					processData: false,
-					contentType: 'application/json'
-				}).then((function(data) {
 					this.get('model').get('userPosts').get('comments').pushObject(data);
-				}).bind(this));
 			}).bind(this));
 		},
 		submitFriend() {
