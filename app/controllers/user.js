@@ -34,9 +34,9 @@ export default Ember.Controller.extend({
 				}).bind(this));
 			}).bind(this));
 		},
-		onComment(body,post_id) {
+		onComment(body,post) {
 			let data = {
-				parent_post_id:post_id,
+				parent_post_id:post.post_id,
 				author_id:session.get('author_id'),
 				text:body
 			};
@@ -50,7 +50,8 @@ export default Ember.Controller.extend({
 				contentType: 'application/json',
 				data: JSON.stringify(data)
 			}).then((function(data) {
-					this.get('model').get('userPosts')[post_id].push(data);
+				post.comments.push(data);
+					this.get('model').notifyPropertyChange('userPosts');
 			}).bind(this));
 		},
 		submitFriend() {
