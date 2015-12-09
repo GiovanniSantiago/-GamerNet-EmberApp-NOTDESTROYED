@@ -295,7 +295,7 @@ export default Ember.Object.extend({
 				contentType: 'application/json'
 			};
 			return Ember.$.ajax(settings).then(function(comments) {
-				post.set('comments',comments);
+				post.comments = Ember.Array.create(comments);
 				return post;
 			});
 		}));
