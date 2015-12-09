@@ -275,6 +275,32 @@ export default Ember.Object.extend({
 		return Ember.$.ajax(settings);
 	},
 
+	findPostComments: function(id) {
+		var settings = {
+			type: "GET",
+			url: "//api-gamer-net.herokuapp.com/json/comments/bypost/"+id,
+			processData: false,
+			contentType: 'application/json'
+		};
+		return Ember.$.ajax(settings);
+	},
+
+	fillCommentsFromPosts: function(posts) {
+
+		return Promise.all(posts.map(function(post) {
+			var settings = {
+				type: "GET",
+				url: "//api-gamer-net.herokuapp.com/json/comments/bypost/"+post.post_id,
+				processData: false,
+				contentType: 'application/json'
+			};
+			return Ember.$.ajax(settings).then(function(comments) {
+				post.comments = comments;
+				return post;
+			});
+		}));
+	},
+
 	findAuthorPosts: function(id) {
 		var settings = {
 			type: "GET",

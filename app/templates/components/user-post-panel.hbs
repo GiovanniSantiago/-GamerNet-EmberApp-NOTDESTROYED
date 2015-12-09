@@ -28,6 +28,17 @@
 				{{/if}}
 			</div>
 		</li>
+		{{#if post.comments}}
+		<div class="panel panel-default">
+			<ul class="list-group scrollable-800">
+				{{#each post.comments as |comment|}}
+					<li class="list-group-item">
+						{{comment.text}}
+					</li>
+				{{/else}}
+			</ul>
+		</div>
+		{{/if}}
 	{{else}}
 		<li class="list-group-item text-muted">{{emptyMessage}}</li>
 	{{/each}}

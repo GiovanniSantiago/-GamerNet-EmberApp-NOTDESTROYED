@@ -23,6 +23,7 @@ export default Ember.Route.extend({
 							console.log("DAT IS ",dat);
 							console.log("Posts: ");
 							console.log(posts);
+							
 							return Ember.Object.create({user_id:App.user_id,user:dat,userPosts:posts});
 						});
 					});
