@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
 				text:body
 			};
 
-			console.log("Sending post");
+			console.log("Sending comment!");
 			console.log(data);
 			Ember.$.ajax({
 				type: "POST",
@@ -51,7 +51,7 @@ export default Ember.Controller.extend({
 				data: JSON.stringify(data)
 			}).then((function(data) {
 				console.log(JSON.stringify(data));
-				
+
 				Ember.$.ajax({
 					type: "GET",
 					url: "//api-gamer-net.herokuapp.com/json/comments",
