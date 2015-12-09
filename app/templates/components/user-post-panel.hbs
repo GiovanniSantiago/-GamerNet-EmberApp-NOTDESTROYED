@@ -39,6 +39,7 @@
 			</ul>
 		</div>
 		{{/if}}
+		{{comment-editor onSubmitComment="onComment" post_id=post.post_id}}
 	{{else}}
 		<li class="list-group-item text-muted">{{emptyMessage}}</li>
 	{{/each}}

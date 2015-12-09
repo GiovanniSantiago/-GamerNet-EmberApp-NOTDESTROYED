@@ -34,6 +34,34 @@ export default Ember.Controller.extend({
 				}).bind(this));
 			}).bind(this));
 		},
+		onComment(body,post_id) {
+			let data = {
+				parent_post_id:post_id,
+				author_id:session.get('author_id'),
+				text:body
+			};
+
+			console.log("Sending post");
+			console.log(data);
+			Ember.$.ajax({
+				type: "POST",
+				url: "//api-gamer-net.herokuapp.com/json/post",
+				processData: false,
+				contentType: 'application/json',
+				data: JSON.stringify(data)
+			}).then((function(data) {
+				console.log(JSON.stringify(data));
+				
+				Ember.$.ajax({
+					type: "GET",
+					url: "//api-gamer-net.herokuapp.com/json/comments",
+					processData: false,
+					contentType: 'application/json'
+				}).then((function(data) {
+					this.get('model').get('userPosts').get('comments').pushObject(data);
+				}).bind(this));
+			}).bind(this));
+		},
 		submitFriend() {
 			let data = {
 				user_id:this.get('model').user.user_id,
