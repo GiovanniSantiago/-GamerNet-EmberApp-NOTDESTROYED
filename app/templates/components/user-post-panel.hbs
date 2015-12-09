@@ -28,6 +28,7 @@
 				{{/if}}
 			</div>
 		</li>
+
 		{{#if post.comments}}
 		<div class="panel panel-default">
 			<ul class="list-group scrollable-800">
@@ -39,6 +40,7 @@
 			</ul>
 		</div>
 		{{/if}}
+		{{post.post_id}}
 		{{comment-editor onSubmitComment="onComment" post_id=post.post_id}}
 	{{else}}
 		<li class="list-group-item text-muted">{{emptyMessage}}</li>

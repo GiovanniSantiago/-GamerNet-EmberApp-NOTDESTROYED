@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 	actions: {
 		onComment(body,post_id) {
 			console.log("userpostpanel oncomment");
-			this.sendAction('onSubmitComment',this.get('body'), this.get('post_id'));
+			this.sendAction('onSubmitComment',body, post_id);
 		}
 	}
 });
